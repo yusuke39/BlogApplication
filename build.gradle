@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
@@ -33,4 +33,19 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+task npmRunBuild() {
+	if (!file("${rootDir}/web/node_modules").exists()) {
+		"npm --prefix ${rootDir}/web install ${rootDir}/web"
+				.execute()
+				.waitForProcessOutput(System.out, System.err)
+	}
+	"npm --prefix ${rootDir}/web run build"
+			.execute()
+			.waitForProcessOutput(System.out, System.err)
+}
+
+processResources {
+	dependsOn npmRunBuild
 }
