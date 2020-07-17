@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+const AdminLogin = () => import(/* webpackChunkName: 'AdminLogin' */'../views/adminLogin.vue')
 
 Vue.use(VueRouter)
 
@@ -21,7 +22,7 @@ const routes = [
   {
     path: '/adminLogin',
     name: 'adminLogin',
-    component: () => import(/* webpackChunkName: "adminLogin" */ '../views/adminLogin.vue')
+    component: AdminLogin
   }
 ]
 
