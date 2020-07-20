@@ -1,7 +1,7 @@
 <template>
   <div class="login-box">
-    <el-input placeholder="Please input" v-model="email" class="input-email" clearable></el-input>
-    <el-input placeholder="Please input password" v-model="password" class="input-password" show-password></el-input>
+    <el-input placeholder="メールアドレス" v-model="email" id="email" class="input-email" clearable></el-input>
+    <el-input placeholder="パスワード" v-model="password" id="password" class="input-password" show-password></el-input>
     <el-button type="success" class="login-button">ログイン</el-button>
     <el-row>
       <el-button type="warning" class="new-register-button">新規会員登録</el-button>
