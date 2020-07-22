@@ -1,101 +1,68 @@
 <template>
-<form>
-  <v-text-field
-    v-model="name"
-    :error-messages="nameErrors"
-    :counter="10"
-    label="Name"
-    required
-    @input="$v.name.$touch()"
-    @blur="$v.name.$touch()"
-  ></v-text-field>
-  <v-text-field
-    v-model="email"
-    :error-messages="emailErrors"
-    label="E-mail"
-    required
-    @input="$v.email.$touch()"
-    @blur="$v.email.$touch()"
-  ></v-text-field>
-  <v-select
-    v-model="select"
-    :items="items"
-    :error-messages="selectErrors"
-    label="Item"
-    required
-    @change="$v.select.$touch()"
-    @blur="$v.select.$touch()"
-  ></v-select>
-  <v-checkbox
-    v-model="checkbox"
-    :error-messages="checkboxErrors"
-    label="Do you agree?"
-    required
-    @change="$v.checkbox.$touch()"
-    @blur="$v.checkbox.$touch()"
-  ></v-checkbox>
+<v-card class="login-card">
+  <v-form>
+    <v-text-field
+      v-model="email"
+      :error-messages="emailErrors"
+      label="メールアドレス"
+      required
+      :rules="emailRules"
+      @input="$v.email.$touch()"
+      @blur="$v.email.$touch()"
+      class="login-email"
+    ></v-text-field>
 
-  <v-btn class="mr-4" @click="submit">submit</v-btn>
-  <v-btn @click="clear">clear</v-btn>
-</form>
+    <v-text-field
+      v-model="password"
+      :error-messages="passwordErrors"
+      label="パスワード"
+      required
+      @input="$v.password.$touch()"
+      @blur="$v.password.$touch()"
+      :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+      :type="showPassword ?  'text' : 'password'"
+      @click:append="showPassword = !showPassword"
+      class="login-password"
+    ></v-text-field>
+
+    <div class="v-application">
+      <v-btn color="success" @click="submit">ログイン</v-btn>
+    </div>
+
+  </v-form>
+</v-card>
 </template>
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { required, maxLength, email } from 'vuelidate/lib/validators'
+import { required, email } from 'vuelidate/lib/validators'
 
 export default {
   mixins: [validationMixin],
 
   validations: {
-    name: { required, maxLength: maxLength(10) },
     email: { required, email },
-    select: { required },
-    checkbox: {
-      checked (val) {
-        return val
-      }
-    }
+    password: { required }
   },
 
   data: () => ({
-    name: '',
+    password: '',
     email: '',
-    select: null,
-    items: [
-      'Item 1',
-      'Item 2',
-      'Item 3',
-      'Item 4'
-    ],
-    checkbox: false
+    showPassword: false
   }),
 
   computed: {
-    checkboxErrors () {
+    passwordErrors () {
       const errors = []
-      if (!this.$v.checkbox.$dirty) return errors
-      !this.$v.checkbox.checked && errors.push('You must agree to continue!')
-      return errors
-    },
-    selectErrors () {
-      const errors = []
-      if (!this.$v.select.$dirty) return errors
-      !this.$v.select.required && errors.push('Item is required')
-      return errors
-    },
-    nameErrors () {
-      const errors = []
-      if (!this.$v.name.$dirty) return errors
-      !this.$v.name.maxLength && errors.push('Name must be at most 10 characters long')
-      !this.$v.name.required && errors.push('Name is required.')
+      if (!this.$v.password.$dirty) return errors
+      !this.$v.password.required && errors.push('パスワードを入力してください')
       return errors
     },
     emailErrors () {
       const errors = []
       if (!this.$v.email.$dirty) return errors
-      !this.$v.email.email && errors.push('Must be valid e-mail')
-      !this.$v.email.required && errors.push('E-mail is required')
+      !this.$v.email.email && errors.push('メールアドレスの形式で入力してください')
+      !this.$v.email.required && errors.push('メールアドレスを入力してください')
       return errors
     }
   },
@@ -103,18 +70,25 @@ export default {
   methods: {
     submit () {
       this.$v.$touch()
-    },
-    clear () {
-      this.$v.$reset()
-      this.name = ''
-      this.email = ''
-      this.select = null
-      this.checkbox = false
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
+  .login-card{
+    width: 500px;
+    height: 300px;
+    margin: 150px auto;
+    padding: 50px;
+  }
+
+  .login-password{
+    margin-bottom: 30px;
+  }
+
+  .login-email{
+    margin-bottom: 20px;
+  }
 
 </style>
