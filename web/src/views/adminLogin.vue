@@ -1,6 +1,6 @@
 <template>
 <v-card class="login-card">
-  <v-form>
+  <form>
     <v-text-field
       v-model="email"
       :error-messages="emailErrors"
@@ -28,7 +28,7 @@
       <v-btn color="success" @click="submit">ログイン</v-btn>
     </div>
 
-  </v-form>
+  </form>
 </v-card>
 </template>
 
