@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 const AdminLogin = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/adminLogin.vue')
 const UserHeader = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/userHeader.vue')
 const AdminHeader = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/adminHeader.vue')
+const NewUserRegister = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/newUserRegister.vue')
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/adminHeader',
     name: 'adminHeader',
     component: AdminHeader
+  },
+  {
+    path: '/userRegister',
+    name: 'userRegister',
+    component: NewUserRegister
   }
 ]
 
