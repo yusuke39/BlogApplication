@@ -5,7 +5,7 @@
       <el-input
         class="user-header-serch"
         placeholder="ブログ検索"
-        v-model="input4">
+        v-model="input">
         <i slot="prefix" class="el-input__icon el-icon-search"></i>
       </el-input>
     </form>
@@ -13,6 +13,16 @@
     <router-link to="/myPage" class="mypage-button header-button">マイページ</router-link>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      input: ''
+    }
+  }
+}
+</script>
 
 <style scoped>
 

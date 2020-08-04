@@ -5,20 +5,23 @@
   <form>
     <v-text-field
       v-model="nickName"
-      :error-messages="nameErrors"
-      :counter="10"
+      :error-messages="nickNameErrors"
       label="ニックネーム"
       required
-      @input="$v.name.$touch()"
-      @blur="$v.name.$touch()"
+      @input="$v.nickName.$touch()"
+      @blur="$v.nickName.$touch()"
       class="register-input-form"
     ></v-text-field>
-    <div class="register-input-form">
-      <label class="file-label">アイコン（画像ファイルを指定してください）</label>
-      <div class="custom-file" style="overflow: hidden;">
-        <input type="file" id="cutomfile" class="custom-file-input" name="imageFile" />
-      </div>
-    </div>
+    <v-file-input
+      :rules="rules"
+      @change="validUploadFile"
+      accept="image/png, image/jpeg, image/bmp"
+      placeholder="アイコン(画像を選択してください)"
+      prepend-icon="mdi-camera"
+      label="アイコン"
+      name="iconImage"
+      class="register-input-form"
+    ></v-file-input>
     <v-text-field
       v-model="email"
       :error-messages="emailErrors"
@@ -28,24 +31,32 @@
       @blur="$v.email.$touch()"
       class="register-input-form"
     ></v-text-field>
-      <v-text-field
-      type="password"
+    <v-text-field
       v-model="password"
-      :error-messages="emailErrors"
+      :error-messages="passwordErrors"
+      :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+      :passwordRules="[rules.required, rules.min]"
+      :type="show ? 'text' : 'password'"
       label="パスワード"
       required
-      @input="$v.email.$touch()"
-      @blur="$v.email.$touch()"
+      @input="$v.password.$touch()"
+      @blur="$v.password.$touch()"
+      counter
+      @click:append="show = !show"
       class="register-input-form"
     ></v-text-field>
-      <v-text-field
-      type="password"
+    <v-text-field
       v-model="confirmPassword"
-      :error-messages="emailErrors"
-      label="確認用パスワード"
+      :error-messages="confirmPasswordErrors"
+      :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+      :passwordRules="[rules.required, rules.min]"
+      :type="show ? 'text' : 'password'"
+      label="パスワード確認"
       required
-      @input="$v.email.$touch()"
-      @blur="$v.email.$touch()"
+      @input="$v.confirmPassword.$touch()"
+      @blur="$v.confirmPassword.$touch()"
+      counter
+      @click:append="show = !show"
       class="register-input-form"
     ></v-text-field>
 
@@ -59,7 +70,76 @@
 
 <script>
 import UserHeader from './userHeader'
+import { validationMixin } from 'vuelidate'
+import { required, email, maxLength, minLength, sameAs } from 'vuelidate/lib/validators'
+
 export default {
+  mixins: [validationMixin],
+
+  validations: {
+    nickName: { required },
+    email: { required, email },
+    password: { required, maxLength: maxLength(40), minLength: minLength(8) },
+    confirmPassword: { required, sameAsPassword: sameAs('password'), maxLength: maxLength(40), minLength: minLength(8) }
+  },
+  data () {
+    return {
+      nickName: '',
+      iconImage: '',
+      email: '',
+      rules: [
+        value => !value || value.size < 2000000 || '写真のサイズは2MB以下でお願いします'
+      ],
+      show: false,
+      password: '',
+      confirmPassword: '',
+      passwordRules: {
+        required: value => !!value || 'Required.',
+        min: v => v.length >= 8 || 'Min 8 characters'
+      },
+      errors: []
+    }
+  },
+  computed: {
+    nickNameErrors () {
+      const errors = []
+      if (!this.$v.nickName.$dirty) return errors
+      !this.$v.nickName.required && errors.push('ニックネームは必ず入力して下さい')
+      return errors
+    },
+    emailErrors () {
+      const errors = []
+      if (!this.$v.email.$dirty) return errors
+      !this.$v.email.email && errors.push('メールアドレスの形式が不正です')
+      !this.$v.email.required && errors.push('メールアドレスは必ず入力して下さい')
+      return errors
+    },
+    passwordErrors () {
+      const errors = []
+      if (!this.$v.password.$dirty) return errors
+      !this.$v.password.required && errors.push('パスワードは必ず入力して下さい')
+      !this.$v.password.maxLength && errors.push('パスワードは8文字以上40文字以内で入力して下さい')
+      !this.$v.password.minLength && errors.push('パスワードは8文字以上40文字以内で入力して下さい')
+      return errors
+    },
+    confirmPasswordErrors () {
+      const errors = []
+      if (!this.$v.confirmPassword.$dirty) return errors
+      !this.$v.confirmPassword.required && errors.push('確認用パスワードは必ず入力して下さい')
+      !this.$v.confirmPassword.maxLength && errors.push('パスワードは8文字以上40文字以内で入力して下さい')
+      !this.$v.confirmPassword.minLength && errors.push('パスワードは8文字以上40文字以内で入力して下さい')
+      !this.$v.confirmPassword.sameAsPassword && errors.push('パスワードは同一にして下さい')
+      return errors
+    }
+  },
+  methods: {
+    validUploadFile () {
+      console.log(this.iconImage)
+    },
+    submit () {
+      this.$refs.observer.validate()
+    }
+  },
   components: {
     UserHeader
   },
@@ -69,7 +149,7 @@ export default {
 
 <style scoped>
 .register-card{
-    width: 900px;
+    width: 700px;
     margin: auto;
     margin-bottom: 60px;
     margin-top: 60px;
@@ -77,7 +157,7 @@ export default {
   }
 
   .register-input-form{
-    width: 600px;
+    width: 400px;
     margin: auto;
     margin-top: 50px;
   }
@@ -92,4 +172,8 @@ export default {
   .file-label{
     color: rgba(0, 0, 0, 0.6);
   }
+
+  .v-messages__message {
+    color: red;
+}
 </style>
