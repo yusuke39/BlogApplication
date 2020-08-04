@@ -11,10 +11,10 @@
       @input="$v.nickName.$touch()"
       @blur="$v.nickName.$touch()"
       class="register-input-form"
+      :class="{ error : $v.nickName.$error,'form-control': true }"
     ></v-text-field>
     <v-file-input
       :rules="rules"
-      @change="validUploadFile"
       accept="image/png, image/jpeg, image/bmp"
       placeholder="アイコン(画像を選択してください)"
       prepend-icon="mdi-camera"
@@ -30,6 +30,7 @@
       @input="$v.email.$touch()"
       @blur="$v.email.$touch()"
       class="register-input-form"
+      :class="{ error : $v.email.$error,'form-control': true }"
     ></v-text-field>
     <v-text-field
       v-model="password"
@@ -44,6 +45,7 @@
       counter
       @click:append="show = !show"
       class="register-input-form"
+      :class="{ error : $v.password.$error,'form-control': true }"
     ></v-text-field>
     <v-text-field
       v-model="confirmPassword"
@@ -58,10 +60,15 @@
       counter
       @click:append="show = !show"
       class="register-input-form"
+      :class="{ error : $v.confirmPassword.$error,'form-control': true }"
     ></v-text-field>
 
     <div class="v-application">
-      <v-btn color="success" @click="submit" class="register-button">登録</v-btn>
+      <v-btn @submit.prevent="submit" color="success" type="submit" class="register-button" :disabled="submitStatus === 'PENDING'">登録</v-btn>
+      {{ submitStatus }}
+      <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
+      <p class="typo__p" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
+      <p class="typo__p" v-if="submitStatus === 'PENDING'">Sending...</p>
     </div>
   </form>
 </v-card>
@@ -97,7 +104,7 @@ export default {
         required: value => !!value || 'Required.',
         min: v => v.length >= 8 || 'Min 8 characters'
       },
-      errors: []
+      submitStatus: null
     }
   },
   computed: {
@@ -133,11 +140,18 @@ export default {
     }
   },
   methods: {
-    validUploadFile () {
-      console.log(this.iconImage)
-    },
     submit () {
-      this.$refs.observer.validate()
+      this.$v.$touch()
+      if (this.$v.$invalid) {
+        console.log(this.$v.$invalid)
+        this.submitStatus = 'ERROR'
+      } else {
+        //  成功した時のロジック
+        this.submitStatus = 'PENDING'
+        setTimeout(() => {
+          this.submitStatus = 'OK'
+        }, 500)
+      }
     }
   },
   components: {
@@ -173,7 +187,7 @@ export default {
     color: rgba(0, 0, 0, 0.6);
   }
 
-  .v-messages__message {
+  .error {
     color: red;
-}
+  }
 </style>
