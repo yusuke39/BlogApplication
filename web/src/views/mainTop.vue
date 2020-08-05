@@ -16,7 +16,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="a">
+            <div class="">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -31,7 +31,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -46,7 +46,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -61,7 +61,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -78,7 +78,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -93,7 +93,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -108,7 +108,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -123,7 +123,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -140,7 +140,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -155,7 +155,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -170,7 +170,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -185,7 +185,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -202,7 +202,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -217,7 +217,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -232,7 +232,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -247,7 +247,7 @@
           <div class="blog-card-name">レオ</div>
           <div class="inside">
             <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="a">
+            <div class="mini-blog-wrapper">
               <p class="blog-title">こんにちは</p>
               <p class="blog-create-date">2020/08/05</p>
             </div>
@@ -255,6 +255,13 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="main-pagination">
+    <el-pagination
+      background
+      layout="prev, pager, next"
+      :total="1000">
+    </el-pagination>
   </div>
 </div>
 </template>
@@ -299,7 +306,7 @@ export default {
   }
 
   .main-wrapper {
-    margin-bottom: 300px;
+    margin-bottom: 50px;
   }
 
   .blog-card-wrarpper  {
@@ -359,8 +366,13 @@ export default {
     text-align: left;
   }
 
-  .a {
+  .mini-blog-wrapper {
     width: 150px;
     margin-left: 10px;
+  }
+
+  .main-pagination{
+    text-align: center;
+    margin-bottom: 100px;
   }
 </style>
