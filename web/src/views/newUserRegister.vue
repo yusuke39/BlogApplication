@@ -1,6 +1,6 @@
 <template>
 <div>
-<user-header class="user-header"></user-header>
+<user-header></user-header>
 <v-card class="register-card">
   <form>
     <v-text-field
