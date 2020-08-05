@@ -275,23 +275,27 @@ export default {
   }
 
   .el-carousel__item:nth-child(3) {
-    background-image: url('../assets/lineblog.jpg');
-    background-size:100% auto;/*この場合は高さが自動設定*/
+    /* background-image: url('../assets/lineblog.jpg');
+    background-size:100% auto; */
+    background-color: turquoise;
   }
 
   .el-carousel__item:nth-child(4) {
-    background-image: url('../assets/line.jpg');
-    background-size:auto 100%;/*この場合は幅が自動設定*/
+    /* background-image: url('../assets/line.jpg');
+    background-size:auto 100%; */
+    background-color: greenyellow;
   }
 
   .el-carousel__item:nth-child(5) {
-    background-image: url('../assets/Bruins.jpg');
-    background-size:auto 100%;/*この場合は幅が自動設定*/
+    /* background-image: url('../assets/Bruins.jpg');
+    background-size:auto 100%; */
+    background-color: coral;
   }
 
   .el-carousel__item:nth-child(6) {
-    background-image: url('../assets/tec.jpg');
-    background-size:auto 100%;/*この場合は幅が自動設定*/
+    /* background-image: url('../assets/image1.jpg');
+    background-size:auto 100%; */
+    background-color: orange;
   }
 
   .main-wrapper {
