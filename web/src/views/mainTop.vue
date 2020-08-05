@@ -8,7 +8,7 @@
   </el-carousel>
   <div class="main-wrapper">
     <div class="blog-card-wrarpper">
-      <div class="blog-card">
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/logo.png" class="blog-card-img">
         </div>
@@ -22,8 +22,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/logo.png" class="blog-card-img">
         </div>
@@ -37,8 +37,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/logo.png" class="blog-card-img">
         </div>
@@ -52,8 +52,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/logo.png" class="blog-card-img">
         </div>
@@ -67,10 +67,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
     <div class="blog-card-wrarpper">
-      <div class="blog-card">
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/Bruins.jpg" class="blog-card-img">
         </div>
@@ -84,8 +84,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/Bruins.jpg" class="blog-card-img">
         </div>
@@ -99,8 +99,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/Bruins.jpg" class="blog-card-img">
         </div>
@@ -114,8 +114,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/Bruins.jpg" class="blog-card-img">
         </div>
@@ -129,10 +129,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
       <div class="blog-card-wrarpper">
-      <div class="blog-card">
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/logo.png" class="blog-card-img">
         </div>
@@ -146,8 +146,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/logo.png" class="blog-card-img">
         </div>
@@ -161,8 +161,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/logo.png" class="blog-card-img">
         </div>
@@ -176,8 +176,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/logo.png" class="blog-card-img">
         </div>
@@ -191,10 +191,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
       <div class="blog-card-wrarpper">
-      <div class="blog-card">
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/Bruins.jpg" class="blog-card-img">
         </div>
@@ -208,8 +208,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/Bruins.jpg" class="blog-card-img">
         </div>
@@ -223,8 +223,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/Bruins.jpg" class="blog-card-img">
         </div>
@@ -238,8 +238,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="blog-card">
+      </router-link>
+      <router-link to="/blog" class="blog-card">
         <div class="blog-img-wrapper">
           <img src="../assets/Bruins.jpg" class="blog-card-img">
         </div>
@@ -253,7 +253,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
   <div class="main-pagination">
@@ -322,6 +322,8 @@ export default {
     border: solid 1px;
     margin: auto;
     margin-right: 30px;
+    text-decoration: none;
+    color: black;
   }
 
   .blog-img-wrapper {
