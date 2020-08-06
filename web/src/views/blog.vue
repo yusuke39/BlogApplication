@@ -1,5 +1,6 @@
 <template>
   <div>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <user-header></user-header>
     <div class="blog-main-img">
     </div>
@@ -20,6 +21,8 @@
 
           ブログの内容がここに入りますよーーー
         </pre>
+        <i class="far fa-heart heart-icon"></i>
+        <i class="far fa-bookmark bookmark-icon"></i>
         <hr class="blog-line">
       </div>
           <div class="blog-contents-wrapper">
@@ -37,6 +40,8 @@
 
           ブログの内容がここに入りますよーーー
         </pre>
+        <i class="far fa-heart heart-icon"></i>
+        <i class="far fa-bookmark bookmark-icon"></i>
         <hr class="blog-line">
       </div>
       <el-pagination
@@ -59,24 +64,11 @@
 
 <script>
 import UserHeader from './userHeader'
-import { mdiHeartOutline } from '@mdi/js'
 export default {
   components: {
     UserHeader
   },
-  template: '<user-header>',
-  render () {
-    return (
-      <Icon path={mdiHeartOutline}
-        title="User Profile"
-        size={1}
-        horizontal
-        vertical
-        rotate={90}
-        color="red"
-        spin/>
-    )
-  }
+  template: '<user-header>'
 }
 </script>
 
@@ -139,5 +131,15 @@ export default {
     position: absolute;
     top: 600px;
     left: 1050px;
+  }
+
+  .heart-icon {
+    font-size: 20px;
+    margin-left: 35px;
+  }
+
+  .bookmark-icon {
+    font-size: 20px;
+    margin-left: 20px;
   }
 </style>
