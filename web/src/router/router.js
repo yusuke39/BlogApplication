@@ -4,6 +4,7 @@ const AdminLogin = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/a
 const NewUserRegister = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/newUserRegister.vue')
 const MainTop = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/mainTop.vue')
 const Blog = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/blog.vue')
+const AdminTop = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/adminTop.vue')
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/blog',
     name: 'blog',
     component: Blog
+  },
+  {
+    path: '/adminTop',
+    name: 'adminTop',
+    component: AdminTop
   }
 ]
 
