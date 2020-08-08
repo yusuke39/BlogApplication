@@ -5,6 +5,7 @@ const NewUserRegister = () => import(/* webpackChunkName: 'AdminLogin' */ '../vi
 const MainTop = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/mainTop.vue')
 const Blog = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/blog.vue')
 const AdminTop = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/adminTop.vue')
+const EditArticle = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/editArticle.vue')
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/adminTop',
     name: 'adminTop',
     component: AdminTop
+  },
+  {
+    path: '/editArticle',
+    name: 'editArticle',
+    component: EditArticle
   }
 ]
 

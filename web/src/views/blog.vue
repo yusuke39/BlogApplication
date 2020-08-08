@@ -71,7 +71,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .blog-main-img {
     width: 100%;
     height: 380px;
