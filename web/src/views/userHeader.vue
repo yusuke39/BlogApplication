@@ -1,5 +1,6 @@
 <template>
   <div class="user-header">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <h1 class="main-logo">BLOG APP</h1>
     <form>
       <el-input

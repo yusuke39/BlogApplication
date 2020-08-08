@@ -1,6 +1,5 @@
 <template>
   <div>
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <user-header></user-header>
     <div class="blog-main-img">
     </div>

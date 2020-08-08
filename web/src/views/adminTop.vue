@@ -3,7 +3,7 @@
     <admin-header></admin-header>
     <el-card :body-style="{ padding: '0px' }"  class="admin-profile-box">
       <div>
-        <div class="admin-profile-img"></div>
+        <img src="../assets/Bruins.jpg" class="admin-profile-img">
         <router-link to="/editProfile">
           <el-button type="info" class="edit-profile-button">プロフィールを編集する</el-button>
         </router-link>
@@ -49,25 +49,95 @@
       </div>
       <hr>
       <div class="article-box">
-        <div class="blog-title">記事タイトル</div>
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">記事タイトル</div>
+            <i class="far fa-heart heart-icon"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
         <hr class="blog-line">
-        <div class="blog-title">記事タイトル</div>
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">記事タイトル</div>
+            <i class="far fa-heart heart-icon"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
         <hr class="blog-line">
-        <div class="blog-title">記事タイトル</div>
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">記事タイトル</div>
+            <i class="far fa-heart heart-icon"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
         <hr class="blog-line">
-        <div class="blog-title">記事タイトル</div>
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">記事タイトル</div>
+            <i class="far fa-heart heart-icon"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
         <hr class="blog-line">
-        <div class="blog-title">記事タイトル</div>
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">記事タイトル</div>
+            <i class="far fa-heart heart-icon"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
         <hr class="blog-line">
-        <div class="blog-title">記事タイトル</div>
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">記事タイトル</div>
+            <i class="far fa-heart heart-icon"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
         <hr class="blog-line">
-        <div class="blog-title">記事タイトル</div>
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">記事タイトル</div>
+            <i class="far fa-heart heart-icon"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
         <hr class="blog-line">
-        <div class="blog-title">記事タイトル</div>
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">記事タイトル</div>
+            <i class="far fa-heart heart-icon"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
         <hr class="blog-line">
-        <div class="blog-title">記事タイトル</div>
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">記事タイトル</div>
+            <i class="far fa-heart heart-icon"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
         <hr class="blog-line">
-        <div class="blog-title">記事タイトル</div>
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">記事タイトル</div>
+            <i class="far fa-heart heart-icon"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
         <hr class="blog-line">
         <el-pagination
           class="admin-top-pagination"
@@ -141,7 +211,6 @@ export default {
   .admin-profile-img {
     width: 100px;
     height: 100px;
-    background-color: aqua;
     border-radius: 100%;
     position: relative;
     top: 30px;
@@ -242,4 +311,21 @@ export default {
     margin-left: 80px;
     margin-bottom: 20px;
   }
+
+  a {
+    text-decoration: none;
+    color: #5F5B5B;
+  }
+
+.blog-detail-box {
+  margin-left: 40px;
+}
+
+.heart-icon {
+  color: red;
+}
+
+.create-date {
+  margin-left: 400px;
+}
 </style>
