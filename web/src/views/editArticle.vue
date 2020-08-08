@@ -3,6 +3,12 @@
   <admin-header></admin-header>
     <div class="blog-wrapper">
       <div class="blog-contents-wrapper">
+        <el-switch
+          class="release-switch"
+          v-model="releaseValue"
+          active-text="公開"
+          inactive-text="非公開">
+        </el-switch>
         <el-input class="blog-title" v-model="blogTitle"></el-input>
         <p class="blog-create-time">2020/8/15 20:00:00</p>
         <img src="../assets/Bruins.jpg" class="blog-content-img">
@@ -34,7 +40,8 @@ import AdminHeader from './adminHeader'
 export default {
   data () {
     return {
-      blogTitle: 'ブログタイトル'
+      blogTitle: 'ブログタイトル',
+      releaseValue: true
     }
   },
   components: {
@@ -48,6 +55,12 @@ export default {
 
  .blog-title {
    width: 400px;
+ }
+
+ .release-switch {
+   position: absolute;
+   top: 120px;
+   left: 1000px
  }
 
  .blog-wrapper {
