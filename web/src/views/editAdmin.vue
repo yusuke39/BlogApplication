@@ -4,6 +4,7 @@
     <div class="edit-admin-wrapper">
       <form>
         <v-text-field
+          class="edit-admin-input"
           v-model="name"
           :error-messages="nameErrors"
           :counter="10"
@@ -14,15 +15,16 @@
           @blur="$v.name.$touch()"
         ></v-text-field>
         <v-file-input
+          class="edit-admin-input"
           :rules="rules"
           accept="image/png, image/jpeg, image/bmp"
           placeholder="アイコン(画像を選択してください)"
           prepend-icon="mdi-camera"
           label="アイコン"
           name="iconImage"
-          class="register-input-form"
         ></v-file-input>
         <v-text-field
+          class="edit-admin-input"
           v-model="email"
           :error-messages="emailErrors"
           label="メールアドレス"
@@ -32,7 +34,7 @@
           @blur="$v.email.$touch()"
         ></v-text-field>
 
-        <el-button type="success" @click="submit">編集完了</el-button>
+        <el-button type="success" @click="submit" class="edit-button">編集完了</el-button>
       </form>
     </div>
   </div>
@@ -85,8 +87,15 @@ export default {
 <style>
  .edit-admin-wrapper {
    width: 500px;
-   height: 700px;
-   border: solid 1px;
    margin: 100px auto;
+ }
+
+ .edit-button {
+   color: #ffffff;
+   width: 100px;
+ }
+
+ .edit-admin-input {
+   margin-bottom: 30px;
  }
 </style>
