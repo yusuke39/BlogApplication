@@ -93,6 +93,7 @@ export default {
  .edit-button {
    color: #ffffff;
    width: 100px;
+   margin-top: 20px;
  }
 
  .edit-admin-input {
