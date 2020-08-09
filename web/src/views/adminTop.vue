@@ -52,93 +52,93 @@
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart heart-icon"></i>
+            <i class="far fa-heart"></i>
             <span>2</span>
             <span class="create-date">2020/8/8</span>
           </div>
         </router-link>
-        <hr class="blog-line">
+        <hr class="article-line">
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart heart-icon"></i>
+            <i class="far fa-heart"></i>
             <span>2</span>
             <span class="create-date">2020/8/8</span>
           </div>
         </router-link>
-        <hr class="blog-line">
+        <hr class="article-line">
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart heart-icon"></i>
+            <i class="far fa-heart"></i>
             <span>2</span>
             <span class="create-date">2020/8/8</span>
           </div>
         </router-link>
-        <hr class="blog-line">
+        <hr class="article-line">
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart heart-icon"></i>
+            <i class="far fa-heart"></i>
             <span>2</span>
             <span class="create-date">2020/8/8</span>
           </div>
         </router-link>
-        <hr class="blog-line">
+        <hr class="article-line">
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart heart-icon"></i>
+            <i class="far fa-heart"></i>
             <span>2</span>
             <span class="create-date">2020/8/8</span>
           </div>
         </router-link>
-        <hr class="blog-line">
+        <hr class="article-line">
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart heart-icon"></i>
+            <i class="far fa-heart"></i>
             <span>2</span>
             <span class="create-date">2020/8/8</span>
           </div>
         </router-link>
-        <hr class="blog-line">
+        <hr class="article-line">
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart heart-icon"></i>
+            <i class="far fa-heart"></i>
             <span>2</span>
             <span class="create-date">2020/8/8</span>
           </div>
         </router-link>
-        <hr class="blog-line">
+        <hr class="article-line">
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart heart-icon"></i>
+            <i class="far fa-heart"></i>
             <span>2</span>
             <span class="create-date">2020/8/8</span>
           </div>
         </router-link>
-        <hr class="blog-line">
+        <hr class="article-line">
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart heart-icon"></i>
+            <i class="far fa-heart"></i>
             <span>2</span>
             <span class="create-date">2020/8/8</span>
           </div>
         </router-link>
-        <hr class="blog-line">
+        <hr class="article-line">
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart heart-icon"></i>
+            <i class="far fa-heart"></i>
             <span>2</span>
             <span class="create-date">2020/8/8</span>
           </div>
         </router-link>
-        <hr class="blog-line">
+        <hr class="article-line">
         <el-pagination
           class="admin-top-pagination"
           background
@@ -303,7 +303,7 @@ export default {
     font-weight: bold;
   }
 
-  .blog-line {
+  .article-line {
     margin-bottom: 50px;
   }
 
@@ -321,7 +321,7 @@ export default {
   margin-left: 40px;
 }
 
-.heart-icon {
+.fa-heart {
   color: red;
 }
 
