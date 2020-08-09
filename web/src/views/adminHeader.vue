@@ -8,10 +8,13 @@
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item>
-          <router-link to="/goodArtcleList" class="drop-menu">いいねした記事</router-link>
+          <router-link to="/adminTop" class="drop-menu">管理者トップ画面</router-link>
         </el-dropdown-item>
         <el-dropdown-item>
-          <router-link to="/saveArticleList" class="drop-menu">保存した記事</router-link>
+          <router-link to="/goodArticles" class="drop-menu">いいねした記事</router-link>
+        </el-dropdown-item>
+        <el-dropdown-item>
+          <router-link to="/saveArticles" class="drop-menu">保存した記事</router-link>
         </el-dropdown-item>
         <el-dropdown-item>
           <router-link to="/articlesGraph" class="drop-menu">グラフ</router-link>

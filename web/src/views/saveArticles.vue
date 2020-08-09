@@ -1,9 +1,9 @@
 <template>
   <div>
     <admin-header></admin-header>
-    <div class="good-news-wrapper">
+    <el-card :body-style="{ padding: '0px' }"  class="save-news-wrapper">
       <span class="ball">●</span>
-      <span class="sentence">いいねした記事</span>
+      <span class="sentence">保存した記事</span>
       <hr class="line">
       <div class="article-box">
         <router-link to="/articleDetail">
@@ -103,7 +103,7 @@
           :total="1000">
         </el-pagination>
       </div>
-    </div>
+    </el-card>
   </div>
 </template>
 
@@ -118,10 +118,9 @@ export default {
 </script>
 
 <style scoped>
-  .good-news-wrapper {
+  .save-news-wrapper {
     width: 700px;
     height: auto;
-    border: solid 1px;
     margin: 50px auto 100px;
     padding: 50px 0px 0px 0px;
   }
@@ -133,6 +132,7 @@ export default {
   .ball {
     color: #55C500;
     margin-top: 30px;
+    margin-left: 10px;
   }
 
   .sentence {

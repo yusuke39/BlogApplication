@@ -4,7 +4,7 @@
     <el-card :body-style="{ padding: '0px' }"  class="admin-profile-box">
       <div>
         <img src="../assets/Bruins.jpg" class="admin-profile-img">
-        <router-link to="/editProfile">
+        <router-link to="/editAdmin">
           <el-button type="info" class="edit-profile-button">プロフィールを編集する</el-button>
         </router-link>
         <router-link to="/createArticle">
