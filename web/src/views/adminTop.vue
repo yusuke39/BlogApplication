@@ -150,7 +150,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import AdminHeader from './adminHeader'
 export default {
   data () {

@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 const AdminLogin = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/adminLogin.vue')
-const NewUserRegister = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/newUserRegister.vue')
-const MainTop = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/mainTop.vue')
-const Blog = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/blog.vue')
-const AdminTop = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/adminTop.vue')
-const EditArticle = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/editArticle.vue')
-const EditAdmin = () => import(/* webpackChunkName: 'AdminLogin' */ '../views/editAdmin.vue')
+const NewUserRegister = () => import(/* webpackChunkName: 'NewUserRegister' */ '../views/newUserRegister.vue')
+const MainTop = () => import(/* webpackChunkName: 'MainTop' */ '../views/mainTop.vue')
+const Blog = () => import(/* webpackChunkName: 'Blog' */ '../views/blog.vue')
+const AdminTop = () => import(/* webpackChunkName: 'AdminTop' */ '../views/adminTop.vue')
+const EditArticle = () => import(/* webpackChunkName: 'EditArticle' */ '../views/editArticle.vue')
+const EditAdmin = () => import(/* webpackChunkName: 'EditAdmin' */ '../views/editAdmin')
+const GoodArticle = () => import(/* webpackChunkName: 'GoodArticle' */ '../views/goodArticle')
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,11 @@ const routes = [
     path: '/editAdmin',
     name: 'editAdmin',
     component: EditAdmin
+  },
+  {
+    path: '/goodArticle',
+    name: 'goodArticle',
+    component: GoodArticle
   }
 ]
 
