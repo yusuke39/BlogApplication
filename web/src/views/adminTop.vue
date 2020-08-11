@@ -148,14 +148,16 @@
       </div>
     </el-card>
     <el-card :body-style="{ padding: '0px' }"  class="graph-box">
-      <doughnut class="graph-size"></doughnut>
+      <doughnut class="doughnut-size"></doughnut>
+      <lineGraph class="line-size"></lineGraph>
     </el-card>
   </div>
 </template>
 
 <script scoped>
 import AdminHeader from './adminHeader'
-import Doughnut from './doughnutGraph.vue'
+import Doughnut from './doughnutGraph'
+import LineGraph from './linegraph'
 export default {
   data () {
     return {
@@ -199,7 +201,8 @@ export default {
   },
   components: {
     AdminHeader,
-    Doughnut
+    Doughnut,
+    LineGraph
   }
 }
 </script>
@@ -333,16 +336,24 @@ export default {
     margin-left: 400px;
   }
 
-  .graph-size {
+  .doughnut-size {
     width: 300px;
-    height: 200px;
+    height: 300px;
   }
 
   .graph-box {
     position: absolute;
-    top: 120px;
+    top: 118px;
     left: 550px;
     width: 700px;
     height: 320px;
+  }
+
+  .line-size {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 15px;
+    left: 330px;
   }
 </style>
