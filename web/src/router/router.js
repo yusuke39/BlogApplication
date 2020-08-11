@@ -9,7 +9,6 @@ const EditArticle = () => import(/* webpackChunkName: 'EditArticle' */ '../views
 const EditAdmin = () => import(/* webpackChunkName: 'EditAdmin' */ '../views/editAdmin')
 const GoodArticles = () => import(/* webpackChunkName: 'GoodArticle' */ '../views/goodArticles')
 const SaveArticles = () => import(/* webpackChunkName: 'SaveArticles' */ '../views/saveArticles')
-const Line = () => import(/* webpackChunkName: 'Line' */ '../views/line')
 
 Vue.use(VueRouter)
 
@@ -58,11 +57,6 @@ const routes = [
     path: '/saveArticles',
     name: 'saveArticles',
     component: SaveArticles
-  },
-  {
-    path: '/line',
-    name: 'Line',
-    component: Line
   }
 ]
 

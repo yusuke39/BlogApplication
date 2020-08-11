@@ -16,9 +16,6 @@
         <el-dropdown-item>
           <router-link to="/saveArticles" class="drop-menu">保存した記事</router-link>
         </el-dropdown-item>
-        <el-dropdown-item>
-          <router-link to="/articlesGraph" class="drop-menu">グラフ</router-link>
-        </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
   </div>
