@@ -1,6 +1,6 @@
 <template>
   <div>
-    <admin-header></admin-header>
+    <AdminHeader></AdminHeader>
     <el-card :body-style="{ padding: '0px' }"  class="admin-profile-box">
       <div>
         <img src="../assets/Bruins.jpg" class="admin-profile-img">
@@ -147,11 +147,15 @@
         </el-pagination>
       </div>
     </el-card>
+    <el-card :body-style="{ padding: '0px' }"  class="graph-box">
+      <doughnut class="graph-size"></doughnut>
+    </el-card>
   </div>
 </template>
 
 <script scoped>
 import AdminHeader from './adminHeader'
+import Doughnut from './doughnutGraph.vue'
 export default {
   data () {
     return {
@@ -194,9 +198,9 @@ export default {
     }
   },
   components: {
-    AdminHeader
-  },
-  template: '<admin-header>'
+    AdminHeader,
+    Doughnut
+  }
 }
 </script>
 
@@ -228,7 +232,7 @@ export default {
     width: 700px;
     height: auto;
     position: absolute;
-    top: 118px;
+    top: 470px;
     left: 550px;
     margin-bottom: 100px;
   }
@@ -317,15 +321,28 @@ export default {
     color: #5F5B5B;
   }
 
-.blog-detail-box {
-  margin-left: 40px;
-}
+  .blog-detail-box {
+    margin-left: 40px;
+  }
 
-.fa-heart {
-  color: red;
-}
+  .fa-heart {
+    color: red;
+  }
 
-.create-date {
-  margin-left: 400px;
-}
+  .create-date {
+    margin-left: 400px;
+  }
+
+  .graph-size {
+    width: 300px;
+    height: 200px;
+  }
+
+  .graph-box {
+    position: absolute;
+    top: 120px;
+    left: 550px;
+    width: 700px;
+    height: 320px;
+  }
 </style>
