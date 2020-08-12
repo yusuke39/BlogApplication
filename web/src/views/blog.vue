@@ -20,7 +20,12 @@
 
           ブログの内容がここに入りますよーーー
         </pre>
-        <i class="far fa-heart heart-icon"></i>
+        <i
+          class="far fa-heart heart-icon"
+          @click="clickHeart"
+          :class="{ hearticonclor : isActive }"
+          ></i>
+          <span>{{ count }}</span>
         <i class="far fa-bookmark bookmark-icon"></i>
         <hr class="blog-line">
       </div>
@@ -39,7 +44,12 @@
 
           ブログの内容がここに入りますよーーー
         </pre>
-        <i class="far fa-heart heart-icon"></i>
+        <i
+          class="far fa-heart heart-icon"
+          @click="clickHeart"
+          :class="{ hearticonclor : isActive }"
+          ></i>
+          <span>{{ count }}</span>
         <i class="far fa-bookmark bookmark-icon"></i>
         <hr class="blog-line">
       </div>
@@ -64,6 +74,23 @@
 <script>
 import UserHeader from './userHeader'
 export default {
+  data () {
+    return {
+      count: 0,
+      isActive: false
+    }
+  },
+  methods: {
+    clickHeart () {
+      if (this.isActive) {
+        this.count = this.count - 1
+        this.isActive = false
+      } else {
+        this.count = this.count + 1
+        this.isActive = true
+      }
+    }
+  },
   components: {
     UserHeader
   },
@@ -72,6 +99,10 @@ export default {
 </script>
 
 <style>
+  .hearticonclor {
+    color: red;
+  }
+
   .blog-main-img {
     width: 100%;
     height: 380px;
