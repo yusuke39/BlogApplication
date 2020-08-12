@@ -8,6 +8,9 @@
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item>
+          <router-link to="/mainTop" class="drop-menu">メイントップ画面</router-link>
+        </el-dropdown-item>
+        <el-dropdown-item>
           <router-link to="/adminTop" class="drop-menu">管理者トップ画面</router-link>
         </el-dropdown-item>
         <el-dropdown-item>
@@ -15,6 +18,9 @@
         </el-dropdown-item>
         <el-dropdown-item>
           <router-link to="/saveArticles" class="drop-menu">保存した記事</router-link>
+        </el-dropdown-item>
+        <el-dropdown-item>
+          <router-link to="/logout" class="drop-menu">ログアウト</router-link>
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>

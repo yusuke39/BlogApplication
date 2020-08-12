@@ -2,6 +2,14 @@
   <div>
     <form>
       <el-input placeholder="ブログタイトル" v-model="articleTitle"></el-input>
+      <el-select v-model="blogCategory" placeholder="カテゴリー選択" class="blog-category">
+        <el-option
+          v-for="blogCategory in blogCategorys"
+          :key="blogCategory.value"
+          :label="blogCategory.label"
+          :value="blogCategory.value">
+        </el-option>
+      </el-select>
       <mavon-editor
         language="ja"
         v-model="blogText"
@@ -49,7 +57,27 @@ export default {
           preview: true
         }
       },
+      blogCategorys: [{
+        value: '1',
+        label: '旅行'
+      }, {
+        value: '2',
+        label: '日常'
+      }, {
+        value: '3',
+        label: 'エンタメ'
+      }, {
+        value: '4',
+        label: '国内'
+      }, {
+        value: '5',
+        label: '海外'
+      }, {
+        value: '6',
+        label: 'その他'
+      }],
       articleTitle: '',
+      blogCategory: '',
       blogText: ''
     }
   },
@@ -66,5 +94,9 @@ export default {
     margin-bottom: 50px;
     color: #ffffff;
     margin-left: 1299px
+  }
+
+  .blog-category {
+    width: 1440px;
   }
 </style>

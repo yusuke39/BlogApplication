@@ -11,7 +11,7 @@ export default {
         datasets: [
           {
             label: '今年の投稿数',
-            data: [10, 50, 20, 30, 30, 40],
+            data: [10, 50, 20, 30, 30, 40, 20, 15, 30, 40, 60, 20],
             borderColor: '#55C500',
             fill: false,
             type: 'line',

@@ -12,6 +12,7 @@
     </form>
     <router-link to="/userRegister" class="user-register-button header-button">新規会員登録</router-link>
     <router-link to="/adminTop" class="mypage-button header-button">マイページ</router-link>
+    <router-link to="/login" class="mypage-button header-button">ログイン</router-link>
   </div>
 </template>
 
@@ -54,10 +55,11 @@ export default {
     text-decoration: none;
     color: #ffffff;
     margin-top: 20px;
+    margin-left: 20px;
   }
 
   .user-register-button{
-    margin-right: 30px;
+    margin-right: 5px;
     margin-left: 300px;
   }
 </style>
