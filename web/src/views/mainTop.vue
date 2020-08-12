@@ -8,252 +8,284 @@
   </el-carousel>
   <div class="main-wrapper">
     <div class="blog-card-wrarpper">
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/logo.png" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog">
+          <div class="blog-img-wrapper">
+            <img src="../assets/logo.png" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/logo.png" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog">
+          <div class="blog-img-wrapper">
+            <img src="../assets/logo.png" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/logo.png" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog">
+          <div class="blog-img-wrapper">
+            <img src="../assets/logo.png" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/logo.png" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog">
+          <div class="blog-img-wrapper">
+            <img src="../assets/logo.png" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
+        </router-link>
+      </el-card>
     </div>
     <div class="blog-card-wrarpper">
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/Bruins.jpg" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog" class="blog-card">
+          <div class="blog-img-wrapper">
+            <img src="../assets/Bruins.jpg" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/logo.png" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/Bruins.jpg" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog" class="blog-card">
+          <div class="blog-img-wrapper">
+            <img src="../assets/Bruins.jpg" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/logo.png" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/Bruins.jpg" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog" class="blog-card">
+          <div class="blog-img-wrapper">
+            <img src="../assets/Bruins.jpg" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/logo.png" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/Bruins.jpg" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog" class="blog-card">
+          <div class="blog-img-wrapper">
+            <img src="../assets/Bruins.jpg" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/logo.png" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
+        </router-link>
+      </el-card>
     </div>
-      <div class="blog-card-wrarpper">
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/logo.png" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        <div class="blog-card-wrarpper">
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog">
+          <div class="blog-img-wrapper">
+            <img src="../assets/logo.png" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/logo.png" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog">
+          <div class="blog-img-wrapper">
+            <img src="../assets/logo.png" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/logo.png" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog">
+          <div class="blog-img-wrapper">
+            <img src="../assets/logo.png" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/logo.png" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog">
+          <div class="blog-img-wrapper">
+            <img src="../assets/logo.png" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/Bruins.jpg" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
+        </router-link>
+      </el-card>
     </div>
-      <div class="blog-card-wrarpper">
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/Bruins.jpg" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+    <div class="blog-card-wrarpper">
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog" class="blog-card">
+          <div class="blog-img-wrapper">
+            <img src="../assets/Bruins.jpg" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/logo.png" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/Bruins.jpg" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog" class="blog-card">
+          <div class="blog-img-wrapper">
+            <img src="../assets/Bruins.jpg" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/logo.png" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/Bruins.jpg" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog" class="blog-card">
+          <div class="blog-img-wrapper">
+            <img src="../assets/Bruins.jpg" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/logo.png" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
-      <router-link to="/blog" class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="../assets/Bruins.jpg" class="blog-card-img">
-        </div>
-        <div class="blog-inside-card">
-          <div class="blog-card-name">レオ</div>
-          <div class="inside">
-            <img src="../assets/logo.png" class="blog-card-img-mini">
-            <div class="mini-blog-wrapper">
-              <p class="blog-title">こんにちは</p>
-              <p class="blog-create-date">2020/08/05</p>
+        </router-link>
+      </el-card>
+      <el-card :body-style="{ padding: '0px' }"  class="blog-card">
+        <router-link to="/blog" class="blog-card">
+          <div class="blog-img-wrapper">
+            <img src="../assets/Bruins.jpg" class="blog-card-img">
+          </div>
+          <div class="blog-inside-card">
+            <div class="blog-card-name">レオ</div>
+            <div class="inside">
+              <img src="../assets/logo.png" class="blog-card-img-mini">
+              <div class="">
+                <p class="blog-title">こんにちは</p>
+                <p class="blog-create-date">2020/08/05</p>
+              </div>
             </div>
           </div>
-        </div>
-      </router-link>
+        </router-link>
+      </el-card>
     </div>
   </div>
   <div class="main-pagination">
@@ -319,15 +351,12 @@ export default {
   .blog-card {
     width: 255px;
     height: 300px;
-    border: solid 1px;
     margin: auto;
     margin-right: 30px;
-    text-decoration: none;
-    color: black;
   }
 
   .blog-img-wrapper {
-    height: 70%;
+    height: 200px;
   }
 
   .blog-inside-card {
@@ -359,13 +388,13 @@ export default {
 
   .blog-title {
     font-size: 12px;
-    text-align: left;
+    margin-left: 20px;
   }
 
   .blog-create-date {
     font-size: 10px;
     color: #5F5B5B;
-    text-align: left;
+    margin-left: 20px;
   }
 
   .mini-blog-wrapper {
@@ -376,5 +405,10 @@ export default {
   .main-pagination{
     text-align: center;
     margin-bottom: 100px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
   }
 </style>
