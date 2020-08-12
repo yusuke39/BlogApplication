@@ -11,7 +11,7 @@
       </el-input>
     </form>
     <router-link to="/userRegister" class="user-register-button header-button">新規会員登録</router-link>
-    <router-link to="/myPage" class="mypage-button header-button">マイページ</router-link>
+    <router-link to="/adminTop" class="mypage-button header-button">マイページ</router-link>
   </div>
 </template>
 
