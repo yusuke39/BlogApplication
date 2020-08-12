@@ -1,6 +1,7 @@
 <template>
   <div>
     <form>
+      <el-input placeholder="ブログタイトル" v-model="articleTitle"></el-input>
       <mavon-editor
         language="ja"
         v-model="blogText"
@@ -48,6 +49,7 @@ export default {
           preview: true
         }
       },
+      articleTitle: '',
       blogText: ''
     }
   },
