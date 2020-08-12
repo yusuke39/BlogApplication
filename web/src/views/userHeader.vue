@@ -1,7 +1,9 @@
 <template>
   <div class="user-header">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <h1 class="main-logo">BLOG APP</h1>
+    <router-link to="/mainTop">
+      <h1 class="main-logo">BLOG APP</h1>
+    </router-link>
     <form>
       <el-input
         class="user-header-serch"
@@ -61,5 +63,9 @@ export default {
   .user-register-button{
     margin-right: 5px;
     margin-left: 300px;
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>

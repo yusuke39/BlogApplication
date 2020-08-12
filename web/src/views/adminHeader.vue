@@ -1,7 +1,9 @@
 <template>
   <div class="user-header">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <h1 class="main-logo">BLOG APP</h1>
+    <router-link to="/mainTop">
+      <h1 class="main-logo">BLOG APP</h1>
+    </router-link>
     <el-dropdown class="header-dorop-down">
       <span class="el-dropdown-link">
        メニュー<i class="el-icon-arrow-down el-icon--right"></i>
@@ -61,5 +63,9 @@
   .drop-menu{
     text-decoration: none;
     color: #524F4F;
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>
