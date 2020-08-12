@@ -8,7 +8,7 @@
         :counter="65535"
         :externalLink="mavonEditor.externalLink"
         :toolbars="mavonEditor.toolbars"
-        placeholder="本文"
+        placeholder="本文はこちらに入力してください"
         style="height: 700px;"
       ></mavon-editor>
       <el-button type="success" class="text-btn">記事を投稿する</el-button>
