@@ -2,19 +2,29 @@
   <div>
     <form>
       <el-input placeholder="ブログタイトル" v-model="articleTitle"></el-input>
-      <el-select v-model="blogCategory" placeholder="カテゴリー選択" class="blog-category">
-        <el-option
-          v-for="blogCategory in blogCategorys"
-          :key="blogCategory.value"
-          :label="blogCategory.label"
-          :value="blogCategory.value">
-        </el-option>
-      </el-select>
+      <el-tag
+        :key="tag"
+        v-for="tag in dynamicTags"
+        closable
+        :disable-transitions="false"
+        @close="handleClose(tag)">
+        {{tag}}
+      </el-tag>
+      <el-input
+        class="input-new-tag"
+        v-if="inputVisible"
+        v-model="inputValue"
+        ref="saveTagInput"
+        size="mini"
+        @keyup.enter.native="handleInputConfirm"
+        @blur="handleInputConfirm"
+      >
+      </el-input>
+      <el-button v-else class="button-new-tag" size="small" @click="showInput">+ タグをつける</el-button>
       <mavon-editor
         language="ja"
         v-model="blogText"
         :counter="65535"
-        :externalLink="mavonEditor.externalLink"
         :toolbars="mavonEditor.toolbars"
         placeholder="本文はこちらに入力してください"
         style="height: 700px;"
@@ -36,15 +46,6 @@ export default {
         externalLink: {
           markdown_css: function () {
             return '/static/css/markdown/github-markdown.min.css'
-          },
-          hljs_js: function () {
-            return '/static/js/highlightjs/highlight.min.js'
-          },
-          katex_css: function () {
-            return '/static/css/katex/katex.min.css'
-          },
-          katex_js: function () {
-            return '/static/js/katex/katex.min.js'
           }
         },
         toolbars: {
@@ -57,28 +58,31 @@ export default {
           preview: true
         }
       },
-      blogCategorys: [{
-        value: '1',
-        label: '旅行'
-      }, {
-        value: '2',
-        label: '日常'
-      }, {
-        value: '3',
-        label: 'エンタメ'
-      }, {
-        value: '4',
-        label: '国内'
-      }, {
-        value: '5',
-        label: '海外'
-      }, {
-        value: '6',
-        label: 'その他'
-      }],
       articleTitle: '',
       blogCategory: '',
-      blogText: ''
+      blogText: '',
+      dynamicTags: [],
+      inputVisible: false,
+      inputValue: ''
+    }
+  },
+  methods: {
+    handleClose (tag) {
+      this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
+    },
+    showInput () {
+      this.inputVisible = true
+      this.$nextTick(_ => {
+        this.$refs.saveTagInput.$refs.input.focus()
+      })
+    },
+    handleInputConfirm () {
+      const inputValue = this.inputValue
+      if (inputValue) {
+        this.dynamicTags.push(inputValue)
+      }
+      this.inputVisible = false
+      this.inputValue = ''
     }
   },
   computed: {
@@ -98,5 +102,23 @@ export default {
 
   .blog-category {
     width: 1440px;
+  }
+
+  .el-tag + .el-tag {
+    margin-left: 10px;
+  }
+  .button-new-tag {
+    margin-left: 10px;
+    height: 32px;
+    line-height: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #55C500;
+    color: #ffffff;
+  }
+  .input-new-tag {
+    width: 90px;
+    margin-left: 10px;
+    vertical-align: bottom;
   }
 </style>
