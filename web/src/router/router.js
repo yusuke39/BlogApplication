@@ -7,9 +7,10 @@ const Blog = () => import(/* webpackChunkName: 'Blog' */ '../views/blog.vue')
 const AdminTop = () => import(/* webpackChunkName: 'AdminTop' */ '../views/adminTop.vue')
 const EditArticle = () => import(/* webpackChunkName: 'EditArticle' */ '../views/editArticle.vue')
 const EditAdmin = () => import(/* webpackChunkName: 'EditAdmin' */ '../views/editAdmin')
-const GoodArticles = () => import(/* webpackChunkName: 'GoodArticle' */ '../views/goodArticles')
+const GoodArticles = () => import(/* webpackChunkName: 'GoodArticles' */ '../views/goodArticles')
 const SaveArticles = () => import(/* webpackChunkName: 'SaveArticles' */ '../views/saveArticles')
-const CreateArticle = () => import(/* webpackChunkName: 'SaveArticles' */ '../views/createArticle')
+const CreateArticle = () => import(/* webpackChunkName: 'CreateArticle' */ '../views/createArticle')
+const BlogDetail = () => import(/* webpackChunkName: 'BlogDetail' */ '../views/blogDetail')
 
 Vue.use(VueRouter)
 
@@ -21,27 +22,27 @@ const routes = [
   },
   {
     path: '/userRegister',
-    name: 'userRegister',
+    name: 'NewUserRegister',
     component: NewUserRegister
   },
   {
     path: '/mainTop',
-    name: 'mainTop',
+    name: 'MainTop',
     component: MainTop
   },
   {
     path: '/blog',
-    name: 'blog',
+    name: 'Blog',
     component: Blog
   },
   {
     path: '/adminTop',
-    name: 'adminTop',
+    name: 'AdminTop',
     component: AdminTop
   },
   {
     path: '/editArticle',
-    name: 'editArticle',
+    name: 'EditArticle',
     component: EditArticle
   },
   {
@@ -51,18 +52,23 @@ const routes = [
   },
   {
     path: '/goodArticles',
-    name: 'goodArticles',
+    name: 'GoodArticles',
     component: GoodArticles
   },
   {
     path: '/saveArticles',
-    name: 'saveArticles',
+    name: 'SaveArticles',
     component: SaveArticles
   },
   {
     path: '/createArticle',
-    name: 'createArticle',
+    name: 'CreateArticle',
     component: CreateArticle
+  },
+  {
+    path: '/blogDetail',
+    name: 'BlogDetail',
+    component: BlogDetail
   }
 ]
 
