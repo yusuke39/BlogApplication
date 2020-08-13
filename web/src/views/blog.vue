@@ -21,12 +21,16 @@
           ブログの内容がここに入りますよーーー
         </pre>
         <i
-          class="far fa-heart heart-icon"
+          class="far fa-heart"
           @click="clickHeart"
           :class="{ hearticonclor : isActive }"
           ></i>
-          <span>{{ count }}</span>
-        <i class="far fa-bookmark bookmark-icon"></i>
+          <span class="count">{{ count }}</span>
+        <router-link to="/blogDetail">
+          <i class="far fa-comment"></i>
+          <span class="count">10</span>
+        </router-link>
+        <i class="far fa-bookmark"></i>
         <hr class="blog-line">
       </div>
           <div class="blog-contents-wrapper">
@@ -45,12 +49,16 @@
           ブログの内容がここに入りますよーーー
         </pre>
         <i
-          class="far fa-heart heart-icon"
+          class="far fa-heart"
           @click="clickHeart"
           :class="{ hearticonclor : isActive }"
           ></i>
-          <span>{{ count }}</span>
-        <i class="far fa-bookmark bookmark-icon"></i>
+          <span class="count">{{ count }}</span>
+          <router-link to="/blogDetail">
+            <i class="far fa-comment"></i>
+            <span class="count">10</span>
+          </router-link>
+        <i class="far fa-bookmark"></i>
         <hr class="blog-line">
       </div>
       <el-pagination
@@ -99,9 +107,6 @@ export default {
 </script>
 
 <style>
-  .hearticonclor {
-    color: red;
-  }
 
   .blog-main-img {
     width: 100%;
@@ -163,13 +168,33 @@ export default {
     left: 1050px;
   }
 
-  .heart-icon {
+  .fa-heart {
     font-size: 20px;
     margin-left: 35px;
+    color: #5F5B5B;
   }
 
-  .bookmark-icon {
+  .fa-bookmark {
     font-size: 20px;
     margin-left: 20px;
+    color: #5F5B5B;
+  }
+
+  .fa-comment {
+    font-size: 20px;
+    margin-left: 20px;
+    color: #5F5B5B;
+  }
+
+  .count {
+    color: #5F5B5B;
+  }
+
+  .hearticonclor {
+    color: red;
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>
