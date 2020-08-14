@@ -2,20 +2,20 @@
   <div>
     <UserHeader></UserHeader>
       <div class="blog-wrapper">
-        <div class="blog-contents-wrapper">
+        <div class="blogdetail-contents-wrapper">
           <h2>ブログ記事タイトル</h2>
           <p class="blog-create-time">2020/8/15 20:00:00</p>
-          <img src="../assets/Bruins.jpg" class="blog-content-img">
+          <img src="../assets/Bruins.jpg" class="blogdetail-content-img">
           <pre class="blog-content">
-            ブログの内容がここに入りますよーーー
-            ブログの内容がここに入りますよーーー
-
-            ブログの内容がここに入りますよーーー
+            ブログの内容がここに入りますよーーーブログの内容がここに入りますよーーー
             ブログの内容がここに入りますよーーー
 
+            ブログの内容がここに入りますよーーーブログの内容がここに入りますよーーー
             ブログの内容がここに入りますよーーー
 
-            ブログの内容がここに入りますよーーー
+            ブログの内容がここに入りますよーーーブログの内容がここに入りますよーーー
+
+            ブログの内容がここに入りますよーーーブログの内容がここに入りますよーーー
             <div class="tag-box">
               <i class="fas fa-tag"></i>
               <div class="tags">
@@ -34,6 +34,50 @@
           <span class="count">10</span>
           <i class="far fa-bookmark"></i>
           <hr class="blog-line">
+          <form>
+            <el-input
+              class="comment-input"
+              type="textarea"
+              autosize
+              placeholder="コメントを入力してください"
+              v-model="comment">
+          </el-input>
+          </form>
+          <p class="comment-list">コメント一覧</p>
+          <div class="comment-box">
+            <span>1</span>.
+            <router-link to="/blog" class="comment-name">れおれお</router-link>
+            <span class="comment-date">2018/8/15</span>
+            <div class="comment">
+              <pre>
+              こんばんは,犬が可愛いですね。
+              私は猫派です😆
+              あーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+              あーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+              </pre>
+            </div>
+          </div>
+          <div class="comment-box">
+            <span>2</span>.
+            <router-link to="/blog" class="comment-name">れおれお</router-link>
+            <span class="comment-date">2018/8/15</span>
+            <div class="comment">
+              <pre>
+              こんばんは,犬が可愛いですね。
+              私は猫派です😆
+              あーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+              あーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div class="blog-icon-wrapper">
+          <img src="../assets/Bruins.jpg" class="blog-icon">
+          <div class="blog-name">平野祐介</div>
+          <pre class="blog-icon-sentence">
+            ヒラノのブログです。
+            ホッケーが好きです。
+          </pre>
         </div>
       </div>
   </div>
@@ -45,7 +89,8 @@ export default {
   data () {
     return {
       count: 0,
-      isActive: false
+      isActive: false,
+      comment: ''
     }
   },
   methods: {
@@ -66,8 +111,8 @@ export default {
 </script>
 
 <style>
-   .blog-contents-wrapper {
-    width: 500px;
+   .blogdetail-contents-wrapper {
+    width: 800px;
     height: 100%;
     margin: auto;
     margin-top: 30px;
@@ -78,9 +123,9 @@ export default {
     margin-bottom: 30px;
   }
 
-  .blog-content-img {
-    width: 300px;
-    height: 300px;
+  .blogdetail-content-img {
+    width: 500px;
+    height: 400px;
     margin-bottom: 20px;
   }
 
@@ -138,6 +183,53 @@ export default {
 
   .tag-word {
     margin-left: 10px;
+  }
+
+  .comment-input {
+    margin-bottom: 70px;
+  }
+
+  .comment-list {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+
+  .comment-box {
+    margin-bottom: 50px;
+  }
+
+  .comment-name {
+    margin-right: 40px;
+    color: #5F5B5B;
+  }
+
+  .comment-date {
+    color: #5F5B5B;
+  }
+
+  .comment {
+    color: #5F5B5B;
+    margin-left: -40px;
+    margin-top: 20px
+  }
+
+  .blog-icon-wrapper {
+    position: absolute;
+    top: 200px;
+    left: 1050px;
+  }
+
+  .blog-name {
+    font-size: 30px;
+    margin-left: 45px;
+    color: #5F5B5B;
+    margin-bottom: 10px;
+  }
+
+  .blog-icon-sentence {
+     color: #5F5B5B;
+     text-align: center;
   }
 
   a {

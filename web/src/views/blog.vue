@@ -208,7 +208,7 @@ export default {
     color: red;
   }
 
-    .fa-tag {
+  .fa-tag {
     margin-top: 5px;
     color: #5F5B5B;
   }
