@@ -71,7 +71,7 @@
             </div>
           </div>
         </div>
-        <div class="blog-icon-wrapper">
+        <div class="commentpage-icon-wrapper">
           <img src="../assets/Bruins.jpg" class="blog-icon">
           <div class="blog-name">平野祐介</div>
           <pre class="blog-icon-sentence">
@@ -214,7 +214,7 @@ export default {
     margin-top: 20px
   }
 
-  .blog-icon-wrapper {
+  .commentpage-icon-wrapper {
     position: absolute;
     top: 200px;
     left: 1050px;
