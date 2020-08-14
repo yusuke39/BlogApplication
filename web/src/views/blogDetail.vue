@@ -56,6 +56,7 @@
               あーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
               </pre>
             </div>
+            <hr>
           </div>
           <div class="comment-box">
             <span>2</span>.
@@ -69,6 +70,7 @@
               あーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
               </pre>
             </div>
+            <hr>
           </div>
         </div>
         <div class="commentpage-icon-wrapper">
