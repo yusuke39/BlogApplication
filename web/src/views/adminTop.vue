@@ -188,6 +188,12 @@ export default {
       }, {
         value: '2',
         label: '古い投稿順'
+      }, {
+        value: '3',
+        label: '公開されてる記事'
+      }, {
+        value: '4',
+        label: '非公開されてる記事'
       }],
       sortValue: ''
     }

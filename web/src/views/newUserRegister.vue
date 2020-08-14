@@ -33,6 +33,16 @@
       :class="{ error : $v.email.$error,'form-control': true }"
     ></v-text-field>
     <v-text-field
+      v-model="blogName"
+      :error-messages="blogNameErrors"
+      label="ブログ名"
+      required
+      @input="$v.blogName.$touch()"
+      @blur="$v.blogName.$touch()"
+      class="register-input-form"
+      :class="{ error : $v.blogName.$error,'form-control': true }"
+    ></v-text-field>
+    <v-text-field
       v-model="password"
       :error-messages="passwordErrors"
       :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
@@ -86,6 +96,7 @@ export default {
   validations: {
     nickName: { required },
     email: { required, email },
+    blogName: { required },
     password: { required, maxLength: maxLength(40), minLength: minLength(8) },
     confirmPassword: { required, sameAsPassword: sameAs('password'), maxLength: maxLength(40), minLength: minLength(8) }
   },
@@ -97,6 +108,7 @@ export default {
       rules: [
         value => !value || value.size < 2000000 || '写真のサイズは2MB以下でお願いします'
       ],
+      blogName: '',
       show: false,
       password: '',
       confirmPassword: '',
@@ -119,6 +131,12 @@ export default {
       if (!this.$v.email.$dirty) return errors
       !this.$v.email.email && errors.push('メールアドレスの形式が不正です')
       !this.$v.email.required && errors.push('メールアドレスは必ず入力して下さい')
+      return errors
+    },
+    blogNameErrors () {
+      const errors = []
+      if (!this.$v.blogName.$dirty) return errors
+      !this.$v.blogName.required && errors.push('ブログ名は必ず入力して下さい')
       return errors
     },
     passwordErrors () {
