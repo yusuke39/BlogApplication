@@ -1,6 +1,6 @@
 <template>
   <div>
-    <admin-header></admin-header>
+    <AdminHeader></AdminHeader>
     <div class="edit-admin-wrapper">
       <form>
         <v-text-field
@@ -14,9 +14,17 @@
           @input="$v.name.$touch()"
           @blur="$v.name.$touch()"
         ></v-text-field>
+        <el-upload
+          class="avatar-uploader"
+          action="https://jsonplaceholder.typicode.com/posts/"
+          :show-file-list="false"
+          :on-success="handleAvatarSuccess"
+          :before-upload="beforeAvatarUpload">
+          <img v-if="imageUrl" :src="imageUrl" class="avatar">
+          <i v-else class="fas fa-user avatar-uploader-icon"></i>
+        </el-upload>
         <v-file-input
           class="edit-admin-input"
-          :rules="rules"
           accept="image/png, image/jpeg, image/bmp"
           placeholder="アイコン(画像を選択してください)"
           prepend-icon="mdi-camera"
@@ -53,7 +61,9 @@ export default {
   data () {
     return {
       name: '',
-      email: ''
+      email: '',
+      icon: '',
+      imageUrl: ''
     }
   },
   computed: {
@@ -73,14 +83,23 @@ export default {
     }
   },
   methods: {
+    handleAvatarSuccess (res, file) {
+      this.imageUrl = URL.createObjectURL(file.raw)
+    },
+    beforeAvatarUpload (file) {
+      const isJPG = file.type === 'image/jpeg'
+      if (!isJPG) {
+        this.$message.error('写真は.JPGの拡張子を選択してください!')
+      }
+      return isJPG
+    },
     submit () {
       this.$v.$touch()
     }
   },
   components: {
     AdminHeader
-  },
-  template: '<admin-header>'
+  }
 }
 </script>
 
@@ -88,6 +107,28 @@ export default {
  .edit-admin-wrapper {
    width: 500px;
    margin: 100px auto;
+ }
+
+ .icon-img {
+   display: none;
+ }
+
+ .file-select {
+   height: 80px;
+   width: 80px;
+   border-radius: 100%;
+   background-color: gray;
+   margin: auto;
+ }
+
+ .inner-icon {
+   position: relative;
+   top: 13px;
+   left: 18px;
+ }
+
+ .icon-img-label {
+   text-decoration: none;
  }
 
  .edit-button {
@@ -99,4 +140,30 @@ export default {
  .edit-admin-input {
    margin-bottom: 30px;
  }
+
+ .avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 100%;
+}
+.avatar-uploader .el-upload:hover {
+  border-color: #409EFF;
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 35px;
+  text-align: center;
+}
+.avatar {
+  width: 178px;
+  height: 178px;
+  display: block;
+}
 </style>

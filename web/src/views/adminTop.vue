@@ -5,7 +5,7 @@
       <div>
         <img src="../assets/Bruins.jpg" class="admin-profile-img">
         <router-link to="/editAdmin">
-          <el-button type="info" class="edit-profile-button">プロフィールを編集する</el-button>
+          <el-button type="info" class="edit-profile-button">プロフィール設定</el-button>
         </router-link>
         <router-link to="/createArticle">
           <el-button type="success" class="create-article-button">記事を投稿する</el-button>
@@ -22,14 +22,6 @@
             v-model="blogSearch">
             <i slot="prefix" class="el-input__icon el-icon-search"></i>
           </el-input>
-          <el-select v-model="categoryValue" placeholder="カテゴリー" id="category" class="search-category">
-            <el-option
-              v-for="categoryOption in categoryOptions"
-              :key="categoryOption.value"
-              :label="categoryOption.label"
-              :value="categoryOption.value">
-            </el-option>
-          </el-select>
           <el-select v-model="sortValue" placeholder="並び替え" id="category" class="search-category">
             <el-option
               v-for="sortOption in sortOptions"
@@ -44,11 +36,24 @@
     </el-card>
     <el-card :body-style="{ padding: '0px' }"  class="blog-list-box">
       <div class="sentence-box">
-        <span class="ball">●</span>
-        <span class="sentence">投稿した記事</span>
+        <button
+          @click="activeTab = 1"
+          :class="[ activeTab === 1 ? 'active' : '']"
+          class="tabBottan"
+          >投稿記事</button>
+        <button
+          @click="activeTab = 2"
+          :class="[ activeTab === 2 ? 'active' : '']"
+          class="tabBottan"
+          >いいねした記事</button>
+        <button
+          @click="activeTab = 3"
+          :class="[ activeTab === 3 ? 'active' : '']"
+          class="tabBottan"
+          >保存した記事</button>
       </div>
       <hr>
-      <div class="article-box">
+      <div class="article-box" v-show="activeTab === 1">
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">記事タイトル</div>
@@ -146,6 +151,202 @@
           :total="1000">
         </el-pagination>
       </div>
+      <div class="article-box" v-show="activeTab === 2">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">いいねした記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">いいねした記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">いいねした記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">いいねした記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">いいねした記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">いいねした記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">いいねした記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">いいねした記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">いいねした記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">いいねした記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <el-pagination
+          class="admin-top-pagination"
+          background
+          layout="prev, pager, next"
+          :total="1000">
+        </el-pagination>
+      </div>
+      <div class="article-box" v-show="activeTab === 3">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">保存した記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">保存した記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">保存した記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">保存した記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">保存した記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">保存した記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">保存した記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">保存した記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">保存した記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <router-link to="/editArticle">
+          <div class="blog-detail-box">
+            <div class="blog-title">保存した記事タイトル</div>
+            <i class="far fa-heart"></i>
+            <span>2</span>
+            <span class="create-date">2020/8/8</span>
+          </div>
+        </router-link>
+        <hr class="article-line">
+        <el-pagination
+          class="admin-top-pagination"
+          background
+          layout="prev, pager, next"
+          :total="1000">
+        </el-pagination>
+      </div>
     </el-card>
     <el-card :body-style="{ padding: '0px' }"  class="graph-box">
       <doughnut class="doughnut-size"></doughnut>
@@ -161,26 +362,8 @@ import LineGraph from './linegraph'
 export default {
   data () {
     return {
+      activeTab: 1,
       blogSearch: '',
-      categoryOptions: [{
-        value: '1',
-        label: '旅行'
-      }, {
-        value: '2',
-        label: '日常'
-      }, {
-        value: '3',
-        label: 'エンタメ'
-      }, {
-        value: '4',
-        label: '国内'
-      }, {
-        value: '5',
-        label: '海外'
-      }, {
-        value: '6',
-        label: 'その他'
-      }],
       categoryValue: '',
       sortOptions: [{
         value: '1',
@@ -287,19 +470,11 @@ export default {
   .sentence-box {
     margin-top: 30px;
     margin-left: 10px;
-    margin-bottom: 20px;
   }
 
   .ball {
     color: #55C500;
     margin-top: 30px;
-  }
-
-  .sentence {
-    color: #5F5B5B;
-    margin-left: 5px;
-    font-weight: bold;
-    font-size: 20px;
   }
 
   .article-box {
@@ -361,5 +536,17 @@ export default {
     position: absolute;
     top: 15px;
     left: 330px;
+  }
+
+  .tabBottan {
+    font-weight: bold;
+    margin-right: 10px;
+    width: 130px;
+    height: 50px;
+    outline: 0;
+  }
+
+  .active {
+    background-color: #dddddd;
   }
 </style>
