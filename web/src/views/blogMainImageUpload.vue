@@ -100,7 +100,7 @@ export default {
 
  .fa-camera {
    position: relative;
-   top: -90px;
+   top: -170px;
  }
 
  .avatar-uploader-area {
