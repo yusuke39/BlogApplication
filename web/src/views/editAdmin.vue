@@ -14,15 +14,21 @@
           @input="$v.name.$touch()"
           @blur="$v.name.$touch()"
         ></v-text-field>
-        <el-upload
-          class="avatar-uploader"
-          action="https://jsonplaceholder.typicode.com/posts/"
-          :show-file-list="false"
-          :on-success="handleAvatarSuccess"
-          :before-upload="beforeAvatarUpload">
-          <img v-if="imageUrl" :src="imageUrl" class="avatar">
-          <i v-else class="fas fa-user avatar-uploader-icon"></i>
-        </el-upload>
+        <div class="icon-file-box">
+          <p class="icon-label">アイコン画像</p>
+          <label class="avatar-uploader">
+            <input
+              type="file"
+              @change="onFileChange"
+              class="avatar-uploader-inner"
+            >
+            <img
+              v-show="iconImage"
+              :src="iconImage"
+              class="avatar-uploader">
+            <i :class="{ 'fa-user-alt fas fa-3x' : isShow }"></i>
+          </label>
+        </div>
         <v-file-input
           class="edit-admin-input"
           accept="image/png, image/jpeg, image/bmp"
@@ -63,7 +69,8 @@ export default {
       name: '',
       email: '',
       icon: '',
-      imageUrl: ''
+      iconImage: '',
+      isShow: true
     }
   },
   computed: {
@@ -83,15 +90,18 @@ export default {
     }
   },
   methods: {
-    handleAvatarSuccess (res, file) {
-      this.imageUrl = URL.createObjectURL(file.raw)
+    onFileChange (e) {
+      const files = e.target.files || e.dataTransfer.files
+      this.createImage(files[0])
+      this.iconImage = files[0].name
+      this.isShow = false
     },
-    beforeAvatarUpload (file) {
-      const isJPG = file.type === 'image/jpeg'
-      if (!isJPG) {
-        this.$message.error('写真は.JPGの拡張子を選択してください!')
+    createImage (file) {
+      const reader = new FileReader()
+      reader.onload = e => {
+        this.iconImage = e.target.result
       }
-      return isJPG
+      reader.readAsDataURL(file)
     },
     submit () {
       this.$v.$touch()
@@ -141,17 +151,29 @@ export default {
    margin-bottom: 30px;
  }
 
- .avatar-uploader .el-upload {
-  border: 1px dashed #d9d9d9;
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  border-radius: 100%;
-}
-.avatar-uploader .el-upload:hover {
-  border-color: #409EFF;
-}
+ .icon-file-box {
+   margin: 30px auto;
+  text-align: center;
+ }
+
+ .avatar-uploader > input {
+   display: none;
+ }
+
+ .avatar-uploader {
+   display: inline-block;
+   width: 130px;
+   height: 130px;
+   border-radius: 100%;
+   text-align: center;
+   line-height: 140px;
+   background-color: #c4c4c4;
+ }
+
+ .icon-label {
+   color: rgba(0, 0, 0, 0.6);
+ }
+
 .avatar-uploader-icon {
   font-size: 28px;
   color: #8c939d;
