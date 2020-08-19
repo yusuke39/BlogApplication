@@ -7,8 +7,6 @@ const Blog = () => import(/* webpackChunkName: 'Blog' */ '../views/blog.vue')
 const AdminTop = () => import(/* webpackChunkName: 'AdminTop' */ '../views/adminTop.vue')
 const EditArticle = () => import(/* webpackChunkName: 'EditArticle' */ '../views/editArticle.vue')
 const EditAdmin = () => import(/* webpackChunkName: 'EditAdmin' */ '../views/editAdmin')
-const GoodArticles = () => import(/* webpackChunkName: 'GoodArticles' */ '../views/goodArticles')
-const SaveArticles = () => import(/* webpackChunkName: 'SaveArticles' */ '../views/saveArticles')
 const CreateArticle = () => import(/* webpackChunkName: 'CreateArticle' */ '../views/createArticle')
 const BlogDetail = () => import(/* webpackChunkName: 'BlogDetail' */ '../views/blogDetail')
 
@@ -49,16 +47,6 @@ const routes = [
     path: '/editAdmin',
     name: 'editAdmin',
     component: EditAdmin
-  },
-  {
-    path: '/goodArticles',
-    name: 'GoodArticles',
-    component: GoodArticles
-  },
-  {
-    path: '/saveArticles',
-    name: 'SaveArticles',
-    component: SaveArticles
   },
   {
     path: '/createArticle',
