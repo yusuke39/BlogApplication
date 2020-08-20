@@ -13,15 +13,6 @@
       class="register-input-form"
       :class="{ error : $v.nickName.$error,'form-control': true }"
     ></v-text-field>
-    <v-file-input
-      :rules="rules"
-      accept="image/png, image/jpeg, image/bmp"
-      placeholder="アイコン(画像を選択してください)"
-      prepend-icon="mdi-camera"
-      label="アイコン"
-      name="iconImage"
-      class="register-input-form"
-    ></v-file-input>
     <v-text-field
       v-model="email"
       :error-messages="emailErrors"
@@ -74,7 +65,7 @@
     ></v-text-field>
 
     <div class="v-application">
-      <v-btn @submit.prevent="submit" color="success" type="submit" class="register-button" :disabled="submitStatus === 'PENDING'">登録</v-btn>
+      <v-btn @submit.prevent="submit" color="success" type="submit" class="register-button" :disabled="submitStatus === 'PENDING'">新規会員登録する</v-btn>
       {{ submitStatus }}
       <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
       <p class="typo__p" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
