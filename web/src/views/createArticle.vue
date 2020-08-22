@@ -1,6 +1,7 @@
 <template>
   <div>
-    <form>
+    <AdminHeader></AdminHeader>
+    <form class="create-article-box">
       <el-input placeholder="ブログタイトル" v-model="articleTitle"></el-input>
       <el-tag
         :key="tag"
@@ -27,7 +28,7 @@
         :counter="65535"
         :toolbars="mavonEditor.toolbars"
         placeholder="本文はこちらに入力してください"
-        style="height: 700px;"
+        style="height: 600px;"
       ></mavon-editor>
       <el-button type="success" class="text-btn">記事を投稿する</el-button>
     </form>
@@ -36,6 +37,7 @@
 
 <script>
 import mavonEditor from 'mavon-editor'
+import AdminHeader from './adminHeader'
 import 'mavon-editor/dist/css/index.css'
 import Vue from 'vue'
 Vue.use(mavonEditor)
@@ -89,11 +91,19 @@ export default {
     compiledMarkdownBody: function () {
       return mavonEditor(this.body)
     }
+  },
+  components: {
+    AdminHeader
   }
 }
 </script>
 
 <style scoped>
+
+  .create-article-box {
+    margin-top: 10px;
+  }
+
   .text-btn {
     margin-bottom: 50px;
     color: #ffffff;
@@ -107,6 +117,7 @@ export default {
   .el-tag + .el-tag {
     margin-left: 10px;
   }
+
   .button-new-tag {
     margin-left: 10px;
     height: 32px;
@@ -116,6 +127,7 @@ export default {
     background-color: #55C500;
     color: #ffffff;
   }
+
   .input-new-tag {
     width: 90px;
     margin-left: 10px;
