@@ -54,7 +54,7 @@ export default {
     nameErrors () {
       const errors = []
       if (!this.$v.name.$dirty) return errors
-      !this.$v.name.maxLength && errors.push('Name must be at most 10 characters long')
+      !this.$v.name.maxLength && errors.push('名前は10文字いないでお願いします')
       !this.$v.name.required && errors.push('ニックネームは必ず入力して下さい')
       return errors
     },
