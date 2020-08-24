@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminController {
 
 
-  @RequestMapping("/getMsg")
+  @RequestMapping("/registeruser")
   public String getMsg(){
     System.out.println("きた");
     return "{\"msg\":\"HelloWorld\"}";

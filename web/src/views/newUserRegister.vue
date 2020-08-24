@@ -65,11 +65,7 @@
     ></v-text-field>
 
     <div class="v-application">
-      <v-btn @submit.prevent="submit" color="success" type="submit" class="register-button" :disabled="submitStatus === 'PENDING'">新規会員登録する</v-btn>
-      {{ submitStatus }}
-      <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
-      <p class="typo__p" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
-      <p class="typo__p" v-if="submitStatus === 'PENDING'">Sending...</p>
+      <v-btn @click="submit" color="success" type="submit" class="register-button">新規会員登録する</v-btn>
     </div>
   </form>
 </v-card>
@@ -79,6 +75,7 @@
 <script>
 import UserHeader from './userHeader'
 import { validationMixin } from 'vuelidate'
+import axios from 'axios'
 import { required, email, maxLength, minLength, sameAs } from 'vuelidate/lib/validators'
 
 export default {
@@ -94,7 +91,6 @@ export default {
   data () {
     return {
       nickName: '',
-      iconImage: '',
       email: '',
       rules: [
         value => !value || value.size < 2000000 || '写真のサイズは2MB以下でお願いします'
@@ -105,9 +101,8 @@ export default {
       confirmPassword: '',
       passwordRules: {
         required: value => !!value || 'Required.',
-        min: v => v.length >= 8 || 'Min 8 characters'
-      },
-      submitStatus: null
+        min: v => v.length >= 7 || 'Min 8 characters'
+      }
     }
   },
   computed: {
@@ -150,17 +145,15 @@ export default {
   },
   methods: {
     submit () {
-      this.$v.$touch()
-      if (this.$v.$invalid) {
-        console.log(this.$v.$invalid)
-        this.submitStatus = 'ERROR'
-      } else {
-        //  成功した時のロジック
-        this.submitStatus = 'PENDING'
-        setTimeout(() => {
-          this.submitStatus = 'OK'
-        }, 500)
-      }
+      axios
+        .get('http://localhost:8080/registerUser')
+        .then(response => {
+          console.log(response)
+          console.log(response.status)
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   },
   components: {
