@@ -6,7 +6,6 @@
       @click="clickBookMark"
       :class="{ 'bookmark-color' : isSave }"
       ></i>
-      <span v-show="isSave">保存</span>
   </div>
 </template>
 
