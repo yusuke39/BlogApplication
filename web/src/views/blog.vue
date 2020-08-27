@@ -1,25 +1,25 @@
 <template>
   <div>
-    <UserHeader></UserHeader>
+    <user-header></user-header>
     <div class="blog-main-img">
     </div>
     <hr>
     <div class="blog-wrapper">
       <div class="blog-contents-wrapper">
-        <BlogContents></BlogContents>
+        <blog-contents></blog-contents>
         <div class="iconButton-wrapper">
-          <GoodArticleButton></GoodArticleButton>
-          <SaveArticleButton></SaveArticleButton>
-          <CommentButton></CommentButton>
+          <good-article-button></good-article-button>
+          <save-article-button></save-article-button>
+          <comment-button></comment-button>
         </div>
         <hr class="blog-line">
       </div>
       <div class="blog-contents-wrapper">
-        <BlogContents></BlogContents>
+        <blog-contents></blog-contents>
         <div class="iconButton-wrapper">
-          <GoodArticleButton></GoodArticleButton>
-          <SaveArticleButton></SaveArticleButton>
-          <CommentButton></CommentButton>
+          <good-article-button></good-article-button>
+          <save-article-button></save-article-button>
+          <comment-button></comment-button>
         </div>
         <hr class="blog-line">
       </div>
@@ -29,7 +29,7 @@
         layout="prev, pager, next"
         :total="1000">
       </el-pagination>
-      <BlogUserIcon></BlogUserIcon>
+      <blog-user-icon></blog-user-icon>
     </div>
   </div>
 </template>
@@ -60,12 +60,12 @@ export default {
     }
   },
   components: {
-    UserHeader,
-    GoodArticleButton,
-    SaveArticleButton,
-    CommentButton,
-    BlogContents,
-    BlogUserIcon
+    'user-header': UserHeader,
+    'good-article-button': GoodArticleButton,
+    'save-article-button': SaveArticleButton,
+    'comment-button': CommentButton,
+    'blog-contents': BlogContents,
+    'blog-user-icon': BlogUserIcon
   }
 }
 </script>
