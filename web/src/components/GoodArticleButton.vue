@@ -2,7 +2,7 @@
   <div>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <i
-      class="far fa-heart heart_red"
+      class="far fa-heart"
       @click="clickHeart"
       :class="{ 'heart-red' : isActive }"
       ></i>
