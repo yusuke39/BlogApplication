@@ -6,27 +6,7 @@
     <hr>
     <div class="blog-wrapper">
       <div class="blog-contents-wrapper">
-        <h2>ブログ記事タイトル</h2>
-        <p class="blog-create-time">2020/8/15 20:00:00</p>
-        <img src="../assets/Bruins.jpg" class="blog-content-img">
-        <pre class="blog-content">
-          ブログの内容がここに入りますよーーー
-          ブログの内容がここに入りますよーーー
-
-          ブログの内容がここに入りますよーーー
-          ブログの内容がここに入りますよーーー
-
-          ブログの内容がここに入りますよーーー
-
-          ブログの内容がここに入りますよーーー
-          <div class="tag-box">
-            <i class="fas fa-tag"></i>
-            <div class="tags">
-              <router-link to="/tagArticles" class="tag-word">イヌ好き</router-link>
-              <router-link to="/tagArticles" class="tag-word">ゴールデン</router-link>
-            </div>
-          </div>
-        </pre>
+        <BlogContents></BlogContents>
         <div class="iconButton-wrapper">
           <GoodArticleButton></GoodArticleButton>
           <SaveArticleButton></SaveArticleButton>
@@ -34,28 +14,8 @@
         </div>
         <hr class="blog-line">
       </div>
-          <div class="blog-contents-wrapper">
-        <h2>ブログ記事タイトル</h2>
-        <p class="blog-create-time">2020/8/15 20:00:00</p>
-        <img src="../assets/logo.png" class="blog-content-img">
-        <pre class="blog-content">
-          ブログの内容がここに入りますよーーー
-          ブログの内容がここに入りますよーーー
-
-          ブログの内容がここに入りますよーーー
-          ブログの内容がここに入りますよーーー
-
-          ブログの内容がここに入りますよーーー
-
-          ブログの内容がここに入りますよーーー
-          <div class="tag-box">
-            <i class="fas fa-tag"></i>
-            <div class="tags">
-              <router-link to="/tagArticles" class="tag-word">イヌ好き</router-link>
-              <router-link to="/tagArticles" class="tag-word">ゴールデン</router-link>
-            </div>
-          </div>
-        </pre>
+      <div class="blog-contents-wrapper">
+        <BlogContents></BlogContents>
         <div class="iconButton-wrapper">
           <GoodArticleButton></GoodArticleButton>
           <SaveArticleButton></SaveArticleButton>
@@ -86,6 +46,7 @@ import UserHeader from './userHeader'
 import GoodArticleButton from '../components/GoodArticleButton'
 import SaveArticleButton from '../components/SaveArticleButton'
 import CommentButton from '../components/CommentButton'
+import BlogContents from '../components/BlogContents'
 export default {
   data () {
     return {
@@ -108,7 +69,8 @@ export default {
     UserHeader,
     GoodArticleButton,
     SaveArticleButton,
-    CommentButton
+    CommentButton,
+    BlogContents
   }
 }
 </script>
@@ -127,22 +89,6 @@ export default {
     height: 100%;
     margin: auto;
     margin-top: 30px;
-  }
-
-  .blog-create-time {
-    color: #5F5B5B;
-    margin-bottom: 30px;
-  }
-
-  .blog-content-img {
-    width: 300px;
-    height: 300px;
-    margin-bottom: 20px;
-  }
-
-  .blog-line {
-    margin-top: 30px;
-    margin-bottom: 30px;
   }
 
   .blog-pagination {
@@ -173,25 +119,6 @@ export default {
     position: absolute;
     top: 600px;
     left: 1050px;
-  }
-
-  .fa-tag {
-    margin-top: 5px;
-    color: #5F5B5B;
-  }
-
-  .tag-box {
-    margin-top: 20px;
-    margin-left: 40px;
-    display: flex;
-  }
-
-  .tags {
-    display: flex;
-  }
-
-  .tag-word {
-    margin-left: 10px;
   }
 
   .iconButton-wrapper {

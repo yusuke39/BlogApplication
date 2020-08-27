@@ -1,6 +1,5 @@
 <template>
   <div>
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <i
       class="far fa-heart"
       @click="clickHeart"
