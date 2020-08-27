@@ -1,6 +1,6 @@
 <template>
   <div>
-    <user-header></user-header>
+    <UserHeader></UserHeader>
     <div class="blog-main-img">
     </div>
     <hr>
@@ -27,17 +27,11 @@
             </div>
           </div>
         </pre>
-        <i
-          class="far fa-heart"
-          @click="clickHeart"
-          :class="{ hearticonclor : isActive }"
-          ></i>
-          <span class="count">{{ count }}</span>
-        <router-link to="/blogDetail">
-          <i class="far fa-comment"></i>
-          <span class="count">10</span>
-        </router-link>
-        <i class="far fa-bookmark"></i>
+        <div class="iconButton-wrapper">
+          <GoodArticleButton></GoodArticleButton>
+          <SaveArticleButton></SaveArticleButton>
+          <CommentButton></CommentButton>
+        </div>
         <hr class="blog-line">
       </div>
           <div class="blog-contents-wrapper">
@@ -62,17 +56,11 @@
             </div>
           </div>
         </pre>
-        <i
-          class="far fa-heart"
-          @click="clickHeart"
-          :class="{ hearticonclor : isActive }"
-          ></i>
-          <span class="count">{{ count }}</span>
-          <router-link to="/blogDetail">
-            <i class="far fa-comment"></i>
-            <span class="count">10</span>
-          </router-link>
-        <i class="far fa-bookmark"></i>
+        <div class="iconButton-wrapper">
+          <GoodArticleButton></GoodArticleButton>
+          <SaveArticleButton></SaveArticleButton>
+          <CommentButton></CommentButton>
+        </div>
         <hr class="blog-line">
       </div>
       <el-pagination
@@ -95,6 +83,9 @@
 
 <script>
 import UserHeader from './userHeader'
+import GoodArticleButton from '../components/GoodArticleButton'
+import SaveArticleButton from '../components/SaveArticleButton'
+import CommentButton from '../components/CommentButton'
 export default {
   data () {
     return {
@@ -114,9 +105,11 @@ export default {
     }
   },
   components: {
-    UserHeader
-  },
-  template: '<user-header>'
+    UserHeader,
+    GoodArticleButton,
+    SaveArticleButton,
+    CommentButton
+  }
 }
 </script>
 
@@ -182,32 +175,6 @@ export default {
     left: 1050px;
   }
 
-  .fa-heart {
-    font-size: 20px;
-    margin-left: 35px;
-    color: #5F5B5B;
-  }
-
-  .fa-bookmark {
-    font-size: 20px;
-    margin-left: 20px;
-    color: #5F5B5B;
-  }
-
-  .fa-comment {
-    font-size: 20px;
-    margin-left: 20px;
-    color: #5F5B5B;
-  }
-
-  .count {
-    color: #5F5B5B;
-  }
-
-  .hearticonclor {
-    color: red;
-  }
-
   .fa-tag {
     margin-top: 5px;
     color: #5F5B5B;
@@ -225,6 +192,10 @@ export default {
 
   .tag-word {
     margin-left: 10px;
+  }
+
+  .iconButton-wrapper {
+    display: flex;
   }
 
   a {

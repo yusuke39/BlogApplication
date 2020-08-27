@@ -2,7 +2,7 @@
 <div>
 <user-header></user-header>
 <v-card class="register-card">
-  <form>
+  <form @:submit.prevent="submit"  method="post">
     <v-text-field
       v-model="nickName"
       :error-messages="nickNameErrors"
@@ -64,9 +64,7 @@
       :class="{ error : $v.confirmPassword.$error,'form-control': true }"
     ></v-text-field>
 
-    <div class="v-application">
-      <v-btn @click="submit" color="success" type="submit" class="register-button">新規会員登録する</v-btn>
-    </div>
+    <button type="submit" class="register-button">新規会員登録する</button>
   </form>
 </v-card>
 </div>
@@ -145,11 +143,16 @@ export default {
   },
   methods: {
     submit () {
+      const params = new URLSearchParams()
       axios
-        .get('http://localhost:8080/registerUser')
+        .post('http://localhost:8080/registerUser', params, {
+          nickName: this.nickName,
+          email: this.email,
+          blogName: this.blogName,
+          password: this.password
+        })
         .then(response => {
           console.log(response)
-          console.log(response.status)
         })
         .catch(error => {
           console.log(error)
@@ -183,6 +186,9 @@ export default {
     margin-bottom: 30px;
     margin-left: 130px;
     width: 200px;
+    height: 40px;
+    background-color: #55C500;
+    color: #ffffff;
   }
 
   .file-label{
