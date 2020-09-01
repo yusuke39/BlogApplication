@@ -5,9 +5,9 @@
 
     <insert id="insertUser">
       INSERT INTO users 
-      (user_id, user_name, email, password, blog_name, delete_flag, create_date, update_date) 
+      (user_name, email, password, blog_name, delete_flag, create_date, update_date) 
       VALUES 
-      (1, #{userName}, #{email}, #{password}, #{blogName}, 0, now(), now());
+      (#{userName}, #{email}, #{password}, #{blogName}, 0, now(), now());
     </insert>
 
 </mapper>
