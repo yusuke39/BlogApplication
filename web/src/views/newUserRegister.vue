@@ -4,14 +4,14 @@
 <v-card class="register-card">
   <form @submit.prevent="submit"  method="post">
     <v-text-field
-      v-model="nickName"
-      :error-messages="nickNameErrors"
+      v-model="userName"
+      :error-messages="userNameErrors"
       label="ニックネーム"
       required
-      @input="$v.nickName.$touch()"
-      @blur="$v.nickName.$touch()"
+      @input="$v.userName.$touch()"
+      @blur="$v.userName.$touch()"
       class="register-input-form"
-      :class="{ error : $v.nickName.$error,'form-control': true }"
+      :class="{ error : $v.userName.$error,'form-control': true }"
     ></v-text-field>
     <v-text-field
       v-model="email"
@@ -80,7 +80,7 @@ export default {
   mixins: [validationMixin],
 
   validations: {
-    nickName: { required },
+    userName: { required },
     email: { required, email },
     blogName: { required },
     password: { required, maxLength: maxLength(40), minLength: minLength(8) },
@@ -88,7 +88,7 @@ export default {
   },
   data () {
     return {
-      nickName: '',
+      userName: '',
       email: '',
       blogName: '',
       password: '',
@@ -104,10 +104,10 @@ export default {
     }
   },
   computed: {
-    nickNameErrors () {
+    userNameErrors () {
       const errors = []
-      if (!this.$v.nickName.$dirty) return errors
-      !this.$v.nickName.required && errors.push('ニックネームは必ず入力して下さい')
+      if (!this.$v.userName.$dirty) return errors
+      !this.$v.userName.required && errors.push('ニックネームは必ず入力して下さい')
       return errors
     },
     emailErrors () {
@@ -144,7 +144,7 @@ export default {
   methods: {
     submit () {
       const userInfo = new FormData()
-      userInfo.append('nickName', this.nickName)
+      userInfo.append('userName', this.userName)
       userInfo.append('email', this.email)
       userInfo.append('blogName', this.blogName)
       userInfo.append('password', this.password)

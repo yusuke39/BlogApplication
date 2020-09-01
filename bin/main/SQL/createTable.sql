@@ -1,7 +1,7 @@
 CREATE SCHEMA `blog` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 
 CREATE TABLE `blog`.`users` (
-  `user_id` INT NOT NULL,
+  `user_id` INT NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(50) NOT NULL,
   `user_img` VARCHAR(200) NULL,
   `email` VARCHAR(100) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE `blog`.`users` (
   UNIQUE INDEX `blog_name_UNIQUE` (`blog_name` ASC) VISIBLE);
 
   CREATE TABLE `blog`.`articles` (
-  `article_id` INT NOT NULL,
+  `article_id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
   `article_title` VARCHAR(50) NOT NULL,
   `content` VARCHAR(300) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `blog`.`users` (
     ON UPDATE NO ACTION);
 
 CREATE TABLE `blog`.`comments` (
-  `comment_id` INT NOT NULL,
+  `comment_id` INT NOT NULL AUTO_INCREMENT,
   `article_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `comment` VARCHAR(200) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE `blog`.`comments` (
     ON UPDATE NO ACTION);
 
 CREATE TABLE `blog`.`good_articles` (
-  `good_article_id` INT NOT NULL,
+  `good_article_id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
   `article_id` INT NOT NULL,
   `save_date` DATETIME NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE `blog`.`good_articles` (
 
 
 CREATE TABLE `blog`.`save_articles` (
-  `save_article_id` INT NOT NULL,
+  `save_article_id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
   `article_id` INT NOT NULL,
   `save_date` DATETIME NOT NULL,
@@ -88,12 +88,12 @@ CREATE TABLE `blog`.`save_articles` (
     ON UPDATE NO ACTION);
 
 CREATE TABLE `blog`.`tags` (
-  `tag_id` INT NOT NULL,
+  `tag_id` INT NOT NULL AUTO_INCREMENT,
   `tag_name` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`tag_id`));
 
 CREATE TABLE `blog`.`tag_articles` (
-  `tag_article_id` INT NOT NULL,
+  `tag_article_id` INT NOT NULL AUTO_INCREMENT,
   `article_id` INT NOT NULL,
   `tag_id` INT NOT NULL,
   PRIMARY KEY (`tag_article_id`),
@@ -109,7 +109,7 @@ CREATE TABLE `blog`.`tag_articles` (
     ON UPDATE NO ACTION);
 
 CREATE TABLE `blog`.`article_images` (
-  `article_image_id` INT NOT NULL,
+  `article_image_id` INT NOT NULL AUTO_INCREMENT,
   `article_id` INT NOT NULL,
   `article_img` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`article_image_id`),
