@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.User;
 import com.example.demo.service.UserRegisterService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,20 +17,12 @@ public class UserController {
 
   //ユーザーを登録する
   @PostMapping("/registerUser")
-  public String registerUser(
+  public void registerUser(
     @RequestParam("userName") String userName, 
     @RequestParam("email") String email,
     @RequestParam("blogName") String blogName,
     @RequestParam("password") String password
     ){
-    
-    User user = new User();
-    user.setUserName(userName);
-    user.setEmail(email);
-    user.setBlogName(blogName);
-    user.setPassword(password);
-    userRegisterService.userRegister(user);
-
-    return "{\"msg\":\"HelloWorld\"}";
+    userRegisterService.userRegister(userName, email, blogName, password);
   }
 }

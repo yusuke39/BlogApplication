@@ -12,7 +12,19 @@ public class UserRegisterService {
   @Autowired
   UserMapper userMapper;
 
-  public void userRegister (User user) {
+  /**
+   * Userドメインに詰めてUserMapperへ渡しユーザー新規登録.
+   * @param userName
+   * @param email
+   * @param blogName
+   * @param password
+   */
+  public void userRegister (String userName, String email, String blogName, String password) {
+    User user = new User();
+    user.setUserName(userName);
+    user.setEmail(email);
+    user.setBlogName(blogName);
+    user.setPassword(password);
     userMapper.insertUser(user);
   }
 }

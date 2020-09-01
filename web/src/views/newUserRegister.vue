@@ -151,7 +151,9 @@ export default {
       axios
         .post('http://localhost:8080/registerUser', userInfo)
         .then(response => {
-          console.log(response)
+          if (response.status === 200) {
+            this.$router.push('/mainTop')
+          }
         })
         .catch(error => {
           console.log(error)
