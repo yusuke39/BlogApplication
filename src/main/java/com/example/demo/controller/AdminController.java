@@ -1,9 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.form.RegisterUserForm;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -12,10 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminController {
 
 
-  @RequestMapping("/registerUser")
-  public String registerUser(RegisterUserForm registerUserForm){
-    System.out.println(registerUserForm.getNickName());
-    System.out.println("きた");
+  @PostMapping("/registerUser")
+  public String registerUser(
+    @RequestParam("nickName") String nickName, 
+    @RequestParam("email") String email,
+    @RequestParam("blogName") String blogName,
+    @RequestParam("password") String password
+    ){
+    System.out.println(nickName);
+    System.out.println(email);
+    System.out.println(blogName);
+    System.out.println(password);
     return "{\"msg\":\"HelloWorld\"}";
   }
 }

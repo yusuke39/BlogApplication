@@ -2,7 +2,7 @@
 <div>
 <user-header></user-header>
 <v-card class="register-card">
-  <form @:submit.prevent="submit"  method="post">
+  <form @submit.prevent="submit"  method="post">
     <v-text-field
       v-model="nickName"
       :error-messages="nickNameErrors"
@@ -90,13 +90,13 @@ export default {
     return {
       nickName: '',
       email: '',
+      blogName: '',
+      password: '',
+      show: false,
+      confirmPassword: '',
       rules: [
         value => !value || value.size < 2000000 || '写真のサイズは2MB以下でお願いします'
       ],
-      blogName: '',
-      show: false,
-      password: '',
-      confirmPassword: '',
       passwordRules: {
         required: value => !!value || 'Required.',
         min: v => v.length >= 7 || 'Min 8 characters'
@@ -143,14 +143,13 @@ export default {
   },
   methods: {
     submit () {
-      const params = new URLSearchParams()
+      const userInfo = new FormData()
+      userInfo.append('nickName', this.nickName)
+      userInfo.append('email', this.email)
+      userInfo.append('blogName', this.blogName)
+      userInfo.append('password', this.password)
       axios
-        .post('http://localhost:8080/registerUser', params, {
-          nickName: this.nickName,
-          email: this.email,
-          blogName: this.blogName,
-          password: this.password
-        })
+        .post('http://localhost:8080/registerUser', userInfo)
         .then(response => {
           console.log(response)
         })

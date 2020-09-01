@@ -1,16 +1,16 @@
-package com.example.demo.form;
+// package com.example.demo.form;
 
-import lombok.Data;
+// import lombok.Data;
 
-@Data
-public class RegisterUserForm {
+// @Data
+// public class RegisterUserForm {
 
-  String nickName;
+//   String nickName;
 
-  String email;
+//   String email;
 
-  String blogName;
+//   String blogName;
 
-  String password;
+//   String password;
 
-}
+// }

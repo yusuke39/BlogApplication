@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AdminHeader></AdminHeader>
+    <admin-header></admin-header>
     <el-card :body-style="{ padding: '0px' }"  class="admin-profile-box">
       <div>
         <img src="../assets/Bruins.jpg" class="admin-profile-img">
@@ -389,7 +389,7 @@ export default {
     }
   },
   components: {
-    AdminHeader,
+    'admin-header': AdminHeader,
     Doughnut,
     LineGraph
   }
