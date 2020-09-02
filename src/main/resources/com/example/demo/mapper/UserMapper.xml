@@ -10,4 +10,11 @@
       (#{userName}, #{email}, #{password}, #{blogName}, 0, now(), now());
     </insert>
 
+
+    <sql id="findUser">
+      SELECT user_id, user_name, email, password, blog_name, delete_flag, create_date, update_date 
+      FROM users
+      WHERE email = #{email};
+    </sql>
+
 </mapper>
