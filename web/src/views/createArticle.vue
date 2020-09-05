@@ -1,8 +1,8 @@
 <template>
   <div>
     <AdminHeader></AdminHeader>
-    <form class="create-article-box">
-      <el-input placeholder="ブログタイトル" v-model="articleTitle"></el-input>
+    <form class="create-article-box" method="post">
+      <el-input placeholder="ブログタイトル" v-model="articleTitle" name="articleTitle"></el-input>
       <el-tag
         :key="tag"
         v-for="tag in dynamicTags"
@@ -30,7 +30,7 @@
         placeholder="本文はこちらに入力してください"
         style="height: 600px;"
       ></mavon-editor>
-      <el-button type="success" class="text-btn">記事を投稿する</el-button>
+      <el-button class="text-btn" type="submit" @click="article">記事を投稿する</el-button>
     </form>
   </div>
 </template>
@@ -40,6 +40,8 @@ import mavonEditor from 'mavon-editor'
 import AdminHeader from './adminHeader'
 import 'mavon-editor/dist/css/index.css'
 import Vue from 'vue'
+import axios from 'axios'
+
 Vue.use(mavonEditor)
 export default {
   data () {
@@ -61,9 +63,8 @@ export default {
         }
       },
       articleTitle: '',
-      blogCategory: '',
-      blogText: '',
       dynamicTags: [],
+      blogText: '',
       inputVisible: false,
       inputValue: ''
     }
@@ -85,6 +86,19 @@ export default {
       }
       this.inputVisible = false
       this.inputValue = ''
+    },
+    article () {
+      console.log('きたよーー')
+      const articleDate = new FormData()
+      articleDate.append('articleTitle', this.articleTitle)
+      axios
+        .post('http://localhost:8080/article/createArticle', articleDate)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   },
   computed: {
@@ -107,7 +121,8 @@ export default {
   .text-btn {
     margin-bottom: 50px;
     color: #ffffff;
-    margin-left: 1299px
+    margin-left: 1299px;
+    background-color: #55C500;
   }
 
   .blog-category {

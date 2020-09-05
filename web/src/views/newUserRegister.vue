@@ -149,7 +149,7 @@ export default {
       userInfo.append('blogName', this.blogName)
       userInfo.append('password', this.password)
       axios
-        .post('http://localhost:8080/registerUser', userInfo)
+        .post('http://localhost:8080/user/registerUser', userInfo)
         .then(response => {
           if (response.status === 200) {
             this.$router.push('/mainTop')

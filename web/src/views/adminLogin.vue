@@ -1,6 +1,6 @@
 <template>
 <v-card class="login-card">
-  <form>
+  <form @submit.prevent="login" method="post">
     <v-text-field
       v-model="email"
       :error-messages="emailErrors"
@@ -25,7 +25,7 @@
     ></v-text-field>
 
     <div class="v-application">
-      <v-btn color="success" @click="submit">ログイン</v-btn>
+      <v-btn type="submit" color="success">ログイン</v-btn>
     </div>
 
   </form>
@@ -35,6 +35,7 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, email } from 'vuelidate/lib/validators'
+import axios from 'axios'
 
 export default {
   mixins: [validationMixin],
@@ -43,13 +44,11 @@ export default {
     email: { required, email },
     password: { required }
   },
-
   data: () => ({
     password: '',
     email: '',
     showPassword: false
   }),
-
   computed: {
     passwordErrors () {
       const errors = []
@@ -65,10 +64,19 @@ export default {
       return errors
     }
   },
-
   methods: {
-    submit () {
-      this.$v.$touch()
+    login () {
+      const userLoginInfo = new FormData()
+      userLoginInfo.append('email', this.email)
+      userLoginInfo.append('password', this.password)
+      axios
+        .post('http://localhost:8080/login', userLoginInfo)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   }
 }
