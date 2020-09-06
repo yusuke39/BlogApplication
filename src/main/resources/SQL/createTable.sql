@@ -21,7 +21,7 @@ CREATE TABLE `blog`.`users` (
   `user_id` INT NOT NULL,
   `article_title` VARCHAR(50) NOT NULL,
   `content` VARCHAR(300) NOT NULL,
-  `private_flg` INT NOT NULL,
+  `private_flag` INT NOT NULL,
   `delete_flag` INT NOT NULL,
   `create_date` DATETIME NOT NULL,
   `update_date` DATETIME NOT NULL,

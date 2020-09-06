@@ -5,7 +5,7 @@
       <el-input placeholder="ブログタイトル" v-model="articleTitle" name="articleTitle"></el-input>
       <el-tag
         :key="tag"
-        v-for="tag in dynamicTags"
+        v-for="tag in tags"
         closable
         :disable-transitions="false"
         @close="handleClose(tag)">
@@ -63,7 +63,7 @@ export default {
         }
       },
       articleTitle: '',
-      dynamicTags: [],
+      tags: [],
       blogText: '',
       inputVisible: false,
       inputValue: ''
@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     handleClose (tag) {
-      this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
+      this.tags.splice(this.tags.indexOf(tag), 1)
     },
     showInput () {
       this.inputVisible = true
@@ -82,7 +82,7 @@ export default {
     handleInputConfirm () {
       const inputValue = this.inputValue
       if (inputValue) {
-        this.dynamicTags.push(inputValue)
+        this.tags.push(inputValue)
       }
       this.inputVisible = false
       this.inputValue = ''
@@ -91,6 +91,8 @@ export default {
       console.log('きたよーー')
       const articleDate = new FormData()
       articleDate.append('articleTitle', this.articleTitle)
+      articleDate.append('tags', this.tags)
+      articleDate.append('blogText', this.blogText)
       axios
         .post('http://localhost:8080/article/createArticle', articleDate)
         .then(response => {

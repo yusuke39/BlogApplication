@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.demo.mapper.ArticleMapper">
+
+    <!-- 記事登録 -->
+    <insert id="insertArticle" parameterType="com.example.demo.domain.Article" useGeneratedKeys="true" keyProperty="articleId" keyColumn="article_id">
+      INSERT INTO articles
+      (user_id, article_title, content, private_flag, delete_flag, create_date, update_date)
+      VALUES
+      (#{userId}, #{articleTitle}, #{content}, 0, 0, now(), now());
+    </insert>
+
+    <!-- タグ登録 -->
+    <insert id="insertTag" parameterType="com.example.demo.domain.Tag" useGeneratedKeys="true" keyProperty="tagId" keyColumn="tag_id">
+      INSERT INTO tags 
+      (tag_name)
+      VALUES
+      (#{tagName});
+    </insert>
+
+    <!-- ArticleId, TagIdの中間テーブル -->
+    <insert id="insertTagArticle">
+      INSERT INTO tag_articles 
+      (article_id, tag_id)
+      VALUES
+      (#{articleId}, #{tagId})
+    </insert>
+
+    <!-- タグを全権取得する -->
+    <select id="findAllTags" resultType="com.example.demo.domain.Tag">
+      SELECT tag_id AS tagId, tag_name AS tagName FROM tags;
+    </select>
+
+</mapper>
