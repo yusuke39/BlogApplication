@@ -88,7 +88,6 @@ export default {
       this.inputValue = ''
     },
     article () {
-      console.log('きたよーー')
       const articleDate = new FormData()
       articleDate.append('articleTitle', this.articleTitle)
       articleDate.append('tags', this.tags)
@@ -96,7 +95,7 @@ export default {
       axios
         .post('http://localhost:8080/article/createArticle', articleDate)
         .then(response => {
-          console.log(response)
+          this.$router.push('/adminTop')
         })
         .catch(error => {
           console.log(error)

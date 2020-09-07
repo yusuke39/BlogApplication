@@ -23,16 +23,22 @@ public interface ArticleMapper {
   void insertTag(Tag tag);
 
   /**
-   * articleテーブルとtagテーブルの中間テーブルへそれぞれのIDをインサート
+   * articleテーブルとtagテーブルの中間テーブルへそれぞれのIDをインサート.
    * @param tagArticle
    */
   void insertTagArticle(@Param("articleId") int articleId, @Param("tagId") int tagId);
 
 
   /**
-   * タグを全権取得
+   * タグを全権取得.
    * @return
    */
   List<Tag> findAllTags();
+
+  /**
+   * 投稿した記事を全権取得.
+   * @return
+   */
+  List<Article> findAllArticles();
   
 }

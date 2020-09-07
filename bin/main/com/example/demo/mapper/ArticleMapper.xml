@@ -33,4 +33,13 @@
       SELECT tag_id AS tagId, tag_name AS tagName FROM tags;
     </select>
 
+
+    <!-- 記事全権取得 -->
+    <select id="findAllArticles" resultType="com.example.demo.domain.Article">
+      SELECT 
+      article_id AS articleId, user_id AS userId, article_title AS articleTitle, content AS content, 
+      private_flag AS privateFlag, delete_flag AS deleteFlag, create_date AS createDate, update_date AS updateDate
+      FROM articles;
+    </select>
+
 </mapper>

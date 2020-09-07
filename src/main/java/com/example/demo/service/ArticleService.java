@@ -92,8 +92,16 @@ public class ArticleService {
    */
   public List<Tag> findAllTags() {
 
-    List<Tag> allTagList = articleMapper.findAllTags();
-
-    return allTagList;
+    return articleMapper.findAllTags();
   }
+
+
+  /**
+   * 記事全権取得.
+   * @return
+   */
+  public List<Article> findAllArticles(){
+    return articleMapper.findAllArticles();
+  }
+
 }

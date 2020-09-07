@@ -1,5 +1,7 @@
 package com.example.demo.domain;
 
+import java.sql.Date;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,4 +20,8 @@ public class Article {
   private int privateFlag;
 
   private int deleteFlag;  
+
+  private Date createDate;
+
+  private Date updateDate;
 }

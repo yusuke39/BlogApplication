@@ -54,96 +54,20 @@
       </div>
       <hr>
       <div class="article-box" v-show="activeTab === 1">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
+        <span v-if="articles.length === 0">
+          <p class="no-article">投稿された記事はありません</p>
+        </span>
+        <span v-for="(article, key) in articles" :key="key">
+          <router-link to="/editArticle">
+            <div class="blog-detail-box">
+              <div class="blog-title">{{ article.articleTitle }}</div>
+              <i class="far fa-heart"></i>
+              <span>2</span>
+              <span class="create-date">{{ article.createDate }}</span>
+            </div>
+          </router-link>
+          <hr class="article-line">
+        </span>
         <el-pagination
           class="admin-top-pagination"
           background
@@ -161,87 +85,6 @@
           </div>
         </router-link>
         <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">いいねした記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">いいねした記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">いいねした記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">いいねした記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">いいねした記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">いいねした記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">いいねした記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">いいねした記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">いいねした記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
         <el-pagination
           class="admin-top-pagination"
           background
@@ -250,87 +93,6 @@
         </el-pagination>
       </div>
       <div class="article-box" v-show="activeTab === 3">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">保存した記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">保存した記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">保存した記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">保存した記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">保存した記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">保存した記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">保存した記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">保存した記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
-        <router-link to="/editArticle">
-          <div class="blog-detail-box">
-            <div class="blog-title">保存した記事タイトル</div>
-            <i class="far fa-heart"></i>
-            <span>2</span>
-            <span class="create-date">2020/8/8</span>
-          </div>
-        </router-link>
-        <hr class="article-line">
         <router-link to="/editArticle">
           <div class="blog-detail-box">
             <div class="blog-title">保存した記事タイトル</div>
@@ -359,12 +121,16 @@
 import AdminHeader from './adminHeader'
 import Doughnut from './doughnutGraph'
 import LineGraph from './linegraph'
+import axios from 'axios'
 export default {
   data () {
     return {
       activeTab: 1,
       blogSearch: '',
       categoryValue: '',
+      sortValue: '',
+      articles: '',
+      articleTitle: '',
       sortOptions: [{
         value: '1',
         label: '新しい投稿順'
@@ -377,9 +143,18 @@ export default {
       }, {
         value: '4',
         label: '非公開されてる記事'
-      }],
-      sortValue: ''
+      }]
     }
+  },
+  mounted () {
+    axios
+      .get('http://localhost:8080/article/getCreateArticleInfo')
+      .then(response => {
+        this.articles = response.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
   },
   methods: {
     resetForm () {
@@ -544,6 +319,12 @@ export default {
     width: 130px;
     height: 50px;
     outline: 0;
+  }
+
+  .no-article {
+    color: #5F5B5B;
+    font-weight: bold;
+    font-size: 20px;
   }
 
   .active {
