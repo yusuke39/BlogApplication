@@ -15,6 +15,7 @@
     "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
+    "firebase": "^7.19.1",
     "mavon-editor": "^2.9.0",
     "react": "^16.13.1",
     "vue": "^2.6.11",

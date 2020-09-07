@@ -47,7 +47,8 @@ export default {
   data () {
     return {
       name: '',
-      email: ''
+      email: '',
+      iconImage: ''
     }
   },
   computed: {
@@ -68,7 +69,7 @@ export default {
   },
   methods: {
     submit () {
-      this.$v.$touch()
+      console.log(this.iconImage)
     }
   },
   components: {

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.UserRegisterService;
+import com.example.demo.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
   @Autowired
-  UserRegisterService userRegisterService;
+  UserService userService;
 
   //ユーザーを登録する
   @PostMapping("/registerUser")
@@ -25,6 +25,6 @@ public class UserController {
     @RequestParam("blogName") String blogName,
     @RequestParam("password") String password
     ){
-    userRegisterService.userRegister(userName, email, blogName, password);
+      userService.userRegister(userName, email, blogName, password);
   }
 }

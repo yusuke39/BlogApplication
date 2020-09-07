@@ -325,6 +325,8 @@ export default {
     color: #5F5B5B;
     font-weight: bold;
     font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
   }
 
   .active {

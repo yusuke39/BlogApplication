@@ -1,5 +1,6 @@
 <template>
 <div class="icon-file-box">
+  <button v-on:click="upload" style="background-color: blue;">upload</button>
   <p class="icon-label">アイコン画像</p>
   <label class="avatar-uploader">
     <input
@@ -14,21 +15,29 @@
     ></canvas>
     <i :class="{ 'fa-user-alt fas fa-3x' : isShowPeopleIcon }"></i>
   </label>
+  {{ firebaseImgUrl }}
 </div>
 </template>
 
 <script>
+import firebase from '../plugins/firebase'
 export default {
   data () {
     return {
       iconImage: '',
+      uploadImage: '',
+      imageUrl: '',
+      firebaseImage: '',
+      firebaseImgUrl: '',
       isShowPeopleIcon: true
     }
   },
   methods: {
     onFileChange (e) {
-      const file = e.target.files[0]
-      const reader = new FileReader()
+      var file = e.target.files[0]
+      this.firebaseImage = e.target.files[0]
+      this.uploadImage = e.target.files[0]
+      var reader = new FileReader()
       reader.onload = (e) => {
         this.createImage(e.target.result)
       }
@@ -82,6 +91,26 @@ export default {
       return new Blob([buffer.buffer], {
         type: 'image/png'
       })
+    },
+    upload () {
+      const file = this.firebaseImage
+      var storageRef = firebase.storage().ref(file.name)
+      storageRef.put(file).then(() => {
+        firebase.storage().ref(file.name).getDownloadURL().then((url) => {
+          console.log(url)
+        }).catch(error => {
+          console.log(error)
+        })
+      })
+      // var uploaImage = this.uploadImage
+      // var storageRef = firebase.storage().ref()
+      // var mountainsRef = storageRef.child(uploaImage.name)
+      // mountainsRef.put(uploaImage).then(snapShot => {
+      //   snapShot.ref.getDownloadURL().then(downloadUrl => {
+      //     this.imageUrl = downloadUrl
+      //     console.log(this.ima)
+      //   })
+      // })
     }
   }
 }
