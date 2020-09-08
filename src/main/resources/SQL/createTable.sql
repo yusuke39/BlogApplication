@@ -8,6 +8,7 @@ CREATE TABLE `blog`.`users` (
   `password` VARCHAR(50) NOT NULL,
   `blog_name` VARCHAR(50) NOT NULL,
   `blog_img` VARCHAR(200) NULL,
+  `self_introduction` VARCHAR(100) NULL,
   `delete_flag` INT NOT NULL,
   `create_date` DATETIME NOT NULL,
   `update_date` DATETIME NOT NULL,
