@@ -3,6 +3,7 @@
 
 <mapper namespace="com.example.demo.mapper.UserMapper">
 
+    <!-- 新規ユーザーを１件insert -->
     <insert id="insertUser">
       INSERT INTO users 
       (user_name, email, password, blog_name, delete_flag, create_date, update_date) 
@@ -10,11 +11,28 @@
       (#{userName}, #{email}, #{password}, #{blogName}, 0, now(), now());
     </insert>
 
-
-    <sql id="findUser">
-      SELECT user_id, user_name, email, password, blog_name, delete_flag, create_date, update_date 
+    <!-- ユーザーをemailで1件検索 -->
+    <select id="findUserByEmail" resultType="com.example.demo.domain.User">
+      SELECT user_id AS userId, user_name AS userName, email AS email, password AS password, 
+      blog_name AS blogName, delete_flag  AS deleteFlag, create_date AS createDate, update_date AS updateDate 
       FROM users
       WHERE email = #{email};
-    </sql>
+    </select>
+
+    <!-- ユーザーをIDで1件検索する -->
+    <select id="findUserById" resultType="com.example.demo.domain.User">
+      SELECT user_id AS userId, user_name AS userName, user_img AS userImg, email AS email, password AS password, 
+      blog_name AS blogName, blog_img AS blogImg, delete_flag  AS deleteFlag, create_date AS createDate, update_date AS updateDate 
+      FROM users
+      WHERE user_id = #{userId};
+    </select>
+
+    <!-- ユーザー情報を1件updataする -->
+    <update id="updataUserInfo">
+      UPDATE users
+      SET user_name=#{userName}, user_img=#{userImg}, email=#{email}, blog_name=#{blogName}, 
+      blog_img=#{blogImg}, update_date=now()
+      WHERE user_id=#{userId}
+    </update>
 
 </mapper>

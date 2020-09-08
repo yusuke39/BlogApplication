@@ -1,6 +1,6 @@
 <template>
 <div class="icon-file-box">
-  <button v-on:click="upload" style="background-color: blue;">upload</button>
+  <!-- <button v-on:click="upload" style="background-color: blue;">upload</button> -->
   <p class="icon-label">アイコン画像</p>
   <label class="avatar-uploader">
     <input
@@ -15,7 +15,6 @@
     ></canvas>
     <i :class="{ 'fa-user-alt fas fa-3x' : isShowPeopleIcon }"></i>
   </label>
-  {{ firebaseImgUrl }}
 </div>
 </template>
 
@@ -28,7 +27,6 @@ export default {
       uploadImage: '',
       imageUrl: '',
       firebaseImage: '',
-      firebaseImgUrl: '',
       isShowPeopleIcon: true
     }
   },
@@ -42,6 +40,15 @@ export default {
         this.createImage(e.target.result)
       }
       reader.readAsDataURL(file)
+      // ファイルアップロード
+      var storageRef = firebase.storage().ref(file.name)
+      storageRef.put(file).then(() => {
+        firebase.storage().ref(file.name).getDownloadURL().then((url) => {
+          this.$emit('iconImageUrl', url)
+        }).catch(error => {
+          console.log(error)
+        })
+      })
     },
     createImage (file) {
       const image = new Image()
@@ -92,26 +99,21 @@ export default {
         type: 'image/png'
       })
     },
-    upload () {
-      const file = this.firebaseImage
-      var storageRef = firebase.storage().ref(file.name)
-      storageRef.put(file).then(() => {
-        firebase.storage().ref(file.name).getDownloadURL().then((url) => {
-          console.log(url)
-        }).catch(error => {
-          console.log(error)
-        })
-      })
-      // var uploaImage = this.uploadImage
-      // var storageRef = firebase.storage().ref()
-      // var mountainsRef = storageRef.child(uploaImage.name)
-      // mountainsRef.put(uploaImage).then(snapShot => {
-      //   snapShot.ref.getDownloadURL().then(downloadUrl => {
-      //     this.imageUrl = downloadUrl
-      //     console.log(this.ima)
-      //   })
-      // })
+    created () {
+      this.$parent.message = this.firebaseImgUrl
     }
+    // upload () {
+    //   const file = this.firebaseImage
+    //   var storageRef = firebase.storage().ref(file.name)
+    //   storageRef.put(file).then(() => {
+    //     firebase.storage().ref(file.name).getDownloadURL().then((url) => {
+    //       console.log(url)
+    //       this.firebaseImgUrl = url
+    //     }).catch(error => {
+    //       console.log(error)
+    //     })
+    //   })
+    // }
   }
 }
 </script>

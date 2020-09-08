@@ -3,7 +3,10 @@
     <admin-header></admin-header>
     <el-card :body-style="{ padding: '0px' }"  class="admin-profile-box">
       <div>
-        <img src="../assets/Bruins.jpg" class="admin-profile-img">
+        <img v-if="blogImg === null" src="../assets/defaulBlogMainImg.gif" class="blog-main-img">
+        <img v-else :src="blogImg" class="blog-main-img">
+        <img v-if="userImg === null" src="../assets/default.png" class="blog-default-img">
+        <img v-else :src="userImg" class="admin-profile-img">
         <router-link to="/editAdmin">
           <el-button type="info" class="edit-profile-button">プロフィール設定</el-button>
         </router-link>
@@ -131,6 +134,8 @@ export default {
       sortValue: '',
       articles: '',
       articleTitle: '',
+      userImg: '',
+      blogImg: '',
       sortOptions: [{
         value: '1',
         label: '新しい投稿順'
@@ -147,10 +152,23 @@ export default {
     }
   },
   mounted () {
+    // 記事情報を取得してadminTopに表示する.
     axios
       .get('http://localhost:8080/article/getCreateArticleInfo')
       .then(response => {
         this.articles = response.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    // ユーザー情報を取得してadminTopに表示する
+    const userId = 7
+    axios
+      .get('http://localhost:8080/user/findUserById?userId=' + userId)
+      .then(responese => {
+        console.log(responese)
+        this.userImg = responese.data.userImg
+        this.blogImg = responese.data.blogImg
       })
       .catch(error => {
         console.log(error)
@@ -174,9 +192,19 @@ export default {
 <style scoped>
   .admin-profile-box {
     width: 300px;
-    height: 300px;
+    height: 480px;
     margin-left: 200px;
     margin-top: 50px;
+  }
+
+  .blog-default-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: relative;
+    background-color: #ffffff;
+    top: -50px;
+    left: 40px;
   }
 
   .admin-profile-img {
@@ -184,8 +212,13 @@ export default {
     height: 100px;
     border-radius: 100%;
     position: relative;
-    top: 30px;
-    left: 100px;
+    top: -50px;
+    left: 40px;
+  }
+
+  .blog-main-img {
+    width: 300px;
+    height: auto;
   }
 
   .search-box-wrapper {
@@ -208,7 +241,7 @@ export default {
     color: #ffffff;
     width: 200px;
     position: relative;
-    top: 60px;
+    top: -10px;
     left: 50px;
   }
 
@@ -216,7 +249,7 @@ export default {
     color: #ffffff;
     width: 200px;
     position: relative;
-    top: 90px;
+    top: 15px;
     left: 50px;
     background-color: #55C500;
   }

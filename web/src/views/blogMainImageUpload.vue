@@ -18,10 +18,12 @@
 </template>
 
 <script>
+import firebase from '../plugins/firebase'
 export default {
   data () {
     return {
       blogMainIMage: '',
+      blogMainImageUrl: '',
       isShowCameraIcon: true
     }
   },
@@ -33,6 +35,15 @@ export default {
         this.createImage(e.target.result)
       }
       reader.readAsDataURL(file)
+      // ファイルアップロード
+      var storageRef = firebase.storage().ref(file.name)
+      storageRef.put(file).then(() => {
+        firebase.storage().ref(file.name).getDownloadURL().then((url) => {
+          this.$emit('blogMainImageUrl', url)
+        }).catch(error => {
+          console.log(error)
+        })
+      })
     },
     createImage (file) {
       const image = new Image()

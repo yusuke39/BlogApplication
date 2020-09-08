@@ -2,18 +2,18 @@
   <div>
     <AdminHeader></AdminHeader>
     <el-card class="edit-admin-wrapper">
-      <form>
+      <form method="post">
         <v-text-field
           class="edit-admin-input"
           v-model="name"
           :error-messages="nameErrors"
           :counter="10"
-          label="ニックネーム"
+          label="ユーザー名"
           prepend-icon="fas fa-user"
           required
           @input="$v.name.$touch()"
           @blur="$v.name.$touch()"
-        ></v-text-field>
+        >{{ name }}</v-text-field>
         <v-text-field
           class="edit-admin-input"
           v-model="email"
@@ -24,9 +24,18 @@
           @input="$v.email.$touch()"
           @blur="$v.email.$touch()"
         ></v-text-field>
-        <UploadUserIcon></UploadUserIcon>
-        <BlogMainImage></BlogMainImage>
-        <el-button type="success" @click="submit" class="edit-button">編集完了</el-button>
+        <v-text-field
+          class="edit-admin-input"
+          v-model="blogName"
+          label="ブログ名"
+          prepend-icon="fas fa-clipboard"
+          required
+          @input="$v.blogName.$touch()"
+          @blur="$v.blogName.$touch()"
+        >{{ blogName }}</v-text-field>
+        <UploadUserIcon @iconImageUrl='getIconImageUrl'></UploadUserIcon>
+        <BlogMainImage @blogMainImageUrl="getBlogManinImageUrl"></BlogMainImage>
+        <el-button @click="updataUser" type="success" class="edit-button">ユーザー情報編集完了</el-button>
       </form>
     </el-card>
   </div>
@@ -38,6 +47,7 @@ import UploadUserIcon from './iconImageUpload'
 import BlogMainImage from './blogMainImageUpload'
 import { validationMixin } from 'vuelidate'
 import { required, maxLength, email } from 'vuelidate/lib/validators'
+import axios from 'axios'
 export default {
   mixins: [validationMixin],
   validations: {
@@ -48,8 +58,26 @@ export default {
     return {
       name: '',
       email: '',
-      iconImage: ''
+      blogName: '',
+      iconImageUrl: '',
+      blogMainImageUrl: ''
     }
+  },
+  mounted () {
+    const userId = 7
+    axios
+      .get('http://localhost:8080/user/findUserById?userId=' + userId)
+      .then(response => {
+        console.log(response)
+        this.name = response.data.userName
+        this.email = response.data.email
+        this.blogName = response.data.blogName
+        this.iconImageUrl = response.data.userImg
+        this.blogMainImageUrl = response.data.blogImg
+      })
+      .catch(error => {
+        console.log(error)
+      })
   },
   computed: {
     nameErrors () {
@@ -68,8 +96,28 @@ export default {
     }
   },
   methods: {
-    submit () {
-      console.log(this.iconImage)
+    getIconImageUrl (url) {
+      this.iconImageUrl = url
+    },
+    getBlogManinImageUrl (url) {
+      this.blogMainImageUrl = url
+    },
+    updataUser () {
+      const userInfo = new FormData()
+      userInfo.append('userId', 7)
+      userInfo.append('userName', this.name)
+      userInfo.append('email', this.email)
+      userInfo.append('blogName', this.blogName)
+      userInfo.append('iconImageUrl', this.iconImageUrl)
+      userInfo.append('blogMainImageUrl', this.blogMainImageUrl)
+      axios
+        .post('http://localhost:8080/user/updataUserInfo', userInfo)
+        .then(response => {
+          this.$router.push('/adminTop')
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   },
   components: {
@@ -110,9 +158,9 @@ export default {
 
  .edit-button {
    color: #ffffff;
-   width: 100px;
+   width: 200px;
    margin-top: 20px;
-   margin-left: 230px;
+   margin-left: 270px;
  }
 
  .edit-admin-input {
