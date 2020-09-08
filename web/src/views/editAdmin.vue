@@ -131,6 +131,7 @@ export default {
 <style>
  .edit-admin-wrapper {
    width: 800px;
+   height: 1000px;
    margin: 100px auto;
  }
 
@@ -158,9 +159,9 @@ export default {
 
  .edit-button {
    color: #ffffff;
-   width: 200px;
-   margin-top: 20px;
-   margin-left: 270px;
+   width: 300px;
+   display: block;
+   margin: auto;
  }
 
  .edit-admin-input {
