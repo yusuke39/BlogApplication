@@ -35,4 +35,16 @@
       WHERE user_id=#{userId}
     </update>
 
+    <!-- ユーザー全権取得 -->
+    <select id="getAllUser" resultType="com.example.demo.domain.User">
+      SELECT user_id AS userId, user_name AS userName, user_img AS userImg, email AS email, password AS password, 
+      blog_name AS blogName, blog_img AS blogImg, delete_flag  AS deleteFlag, create_date AS createDate, update_date AS updateDate 
+      FROM users;
+    </select>
+
+    <!-- ユーザーの総数をカウント -->
+    <select id="countAllUser" resultType="int">
+      select COUNT(*) from users;
+    </select>
+
 </mapper>

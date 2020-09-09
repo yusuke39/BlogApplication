@@ -1,5 +1,7 @@
 package com.example.demo.mapper;
 
+import java.util.List;
+
 import com.example.demo.domain.User;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -33,5 +35,18 @@ public interface UserMapper {
    * @param user
    */
   void updataUserInfo(User user);
+
+  /**
+   * ユーザー全権取得.
+   * @return
+   */
+  List<User> getAllUser();
+
+
+  /**
+   * ユーザーの総数をカウント
+   * @return
+   */
+  int countAllUser();
 
 }

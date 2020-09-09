@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.demo.domain.User;
 import com.example.demo.service.UserService;
 
@@ -48,8 +51,6 @@ public class UserController {
     return userService.findUserById(userId);
   }
 
-
-
   /**
    * ユーザー情報を1件updateする.
    * @param userName
@@ -68,5 +69,53 @@ public class UserController {
     @RequestParam("blogMainImageUrl") String blogImg
    ){
       userService.updataUserInfo(userId, userName, email, userImg, blogName, blogImg);
+   }
+
+   /**
+    * ユーザー情報全権取得.
+    * @return
+    */
+   @RequestMapping("/getAllUser")
+   public List<List<User>> getAllUser(){
+    // List <User> userList = new ArrayList<>();
+
+    // List<List<User>> userBreakList = new ArrayList<>();
+
+    // for(int i = 1; userService.getAllUser().size(); i++){
+    //   userBreakList.add()
+    // }
+
+
+    return makeUserList(userService.getAllUser());
+    // List<User> userList = new ArrayList<>();
+    // int offset = 0;
+    // for(int i = 1 ; i <= userService.countAllUser() / 4 + 1 ; i++) {
+    //   userList =  userService.getAllUser(offset);
+    //   System.out.println(userList);
+    //   offset +=  4;
+    // }
+    // return userList;
+    // System.out.println(userList + "なに");
+    //  return userList;
+   }
+
+   public List<List<User>> makeUserList(List<User> userList){
+
+     List<User> userBreakList = new ArrayList<>();
+
+     List<List<User>> userListinList = new ArrayList<>();
+
+     for (int i = 1; i <= userList.size(); i++){
+       userBreakList.add(userList.get(i - 1));
+       if((i % 4) == 0) {
+        userListinList.add(userBreakList);
+        userBreakList = new ArrayList<>();
+       }
+     } 
+     if(userBreakList.size() == 0) {
+       return userListinList;
+     }
+     userListinList.add(userBreakList);
+     return userListinList;
    }
 }
