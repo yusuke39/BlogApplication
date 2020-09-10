@@ -60,13 +60,13 @@ export default {
       email: '',
       blogName: '',
       iconImageUrl: '',
-      blogMainImageUrl: ''
+      blogMainImageUrl: '',
+      userId: 7
     }
   },
   mounted () {
-    const userId = 7
     axios
-      .get('http://localhost:8080/user/findUserById?userId=' + userId)
+      .get('http://localhost:8080/user/findUserById?userId=' + this.userId)
       .then(response => {
         console.log(response)
         this.name = response.data.userName
@@ -104,7 +104,7 @@ export default {
     },
     updataUser () {
       const userInfo = new FormData()
-      userInfo.append('userId', 7)
+      userInfo.append('userId', this.userId)
       userInfo.append('userName', this.name)
       userInfo.append('email', this.email)
       userInfo.append('blogName', this.blogName)

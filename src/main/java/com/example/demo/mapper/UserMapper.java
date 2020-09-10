@@ -49,4 +49,10 @@ public interface UserMapper {
    */
   int countAllUser();
 
+  /**
+   * ユーザーや記事をuserIdで１件検索する.
+   * @return
+   */
+  User findUserAndArticleByUserId(int userId);
+
 }

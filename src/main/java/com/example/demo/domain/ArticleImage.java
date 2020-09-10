@@ -5,12 +5,11 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class TagArticle {
-
-  private int tagArticleId;
-
-  private int  articleId;
+public class ArticleImage {
   
-  private int tagId;
-  
+  private int articleImageId;
+
+  private int articleId;
+
+  private String articleImg;
 }

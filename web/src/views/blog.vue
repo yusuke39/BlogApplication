@@ -4,6 +4,7 @@
     <div class="blog-main-img">
     </div>
     <hr>
+    {{ this.$route.params.userId }}
     <div class="blog-wrapper">
       <div class="blog-contents-wrapper">
         <blog-contents></blog-contents>
@@ -41,6 +42,7 @@ import SaveArticleButton from '../components/SaveArticleButton'
 import CommentButton from '../components/CommentButton'
 import BlogContents from '../components/BlogContents'
 import BlogUserIcon from '../components/BlogUserIcon'
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -48,16 +50,15 @@ export default {
       isActive: false
     }
   },
-  methods: {
-    clickHeart () {
-      if (this.isActive) {
-        this.count = this.count - 1
-        this.isActive = false
-      } else {
-        this.count = this.count + 1
-        this.isActive = true
-      }
-    }
+  mounted () {
+    axios
+      .get('http://localhost:8080/user/findUserAndArticleByUserId?userId=' + this.$route.query.userId)
+      .then(response => {
+        this.userBlogInfo = response.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
   },
   components: {
     'user-header': UserHeader,

@@ -47,4 +47,80 @@
       select COUNT(*) from users;
     </select>
 
+
+    <!-- <select id="findUserAndArticleByUserId" resultMap="UserArticleResult">
+      SELECT
+      us.user_id AS userId, us.user_name AS userName, us.user_img AS userImg, us.email AS email, us.password AS password, 
+      us.blog_name AS blogName, us.blog_img AS blogImg, us.delete_flag  AS deleteFlag, us.create_date AS createDate, us.update_date AS updateDate,
+      ar.article_id AS articleId, ar.user_id AS userId, ar.article_title AS articleTitle, ar.content AS content,
+      ar.private_flag AS privateFlag, ar.delete_flag AS deleteFlag, ar.create_date AS createDate, ar.update_date AS updateDate,
+      co.comment_id AS commentId, co.article_id AS ArticleId, co.user_id AS userId, co.comment AS comment, co.create_date AS createDate,
+      ai.article_image_id AS articleImageId, ai.article_id AS articleId, ai.article_img AS articleImg,
+      ta.tag_article_id AS tagArticleId, ta.article_Id AS articleId, ta.tag_id AS tagId,
+      t.tag_id AS tagId, t.tag_name AS tagName, 
+      ga.good_article_id AS  goodArticleId, ga.user_id AS userId,  ga.article_id AS articleId, ga.save_date AS saveDate
+      FROM users us
+      LEFT OUTER JOIN articles ar ON us.user_id =  ar.user_id
+      LEFT OUTER JOIN comments co ON  co.article_id = ar.article_id
+      LEFT OUTER JOIN article_images ai ON ai.article_id = ar.article_id
+      LEFT OUTER JOIN tag_articles ta ON ta.article_id = ar.article_id
+      LEFT OUTER JOIN tags t on t.tag_id = ta.tag_id
+      LEFT OUTER JOIN good_articles ga ON ga.article_id = ar.article_id
+      WHERE us.user_id = #{userId}
+      ORDER BY ar.create_date;
+    </select> -->
+
+     
+    <!-- <resultMap id="UserArticleResult" type="com.example.demo.domain.User">
+        <id column="user_id" property="userId" />
+        <result property="user_id" column="userId"/>
+        <result property="user_name" column="userName"/>
+        <result property="user_img" column="userImg"/>
+        <result property="email" column="email"/>
+        <result property="password" column="password"/>
+        <result property="blog_name" column="blogName"/>
+        <result property="blog_img" column="blogImg"/>
+        <result property="blog_name" column="blogName"/>
+        <result property="delete_flag" column="deleteFlag"/>
+        <result property="create_date" column="createDate"/>
+        <result property="update_date" column="updateDate"/>
+        <association property="article" javaType="com.example.demo.domain.Article">
+            <result property="article_id" column="articleId"/>
+            <result property="user_id" column="userId"/>
+            <result property="article_title" column="articleTitle"/>
+            <result property="content" column="content"/>
+            <result property="private_flag" column="privateFlag"/>
+            <result property="delete_flag" column="deleteFlag"/>
+            <result property="create_date" column="createDate"/>
+            <result property="update_date" column="updateDate"/>
+        </association>
+        <association property="comment" javaType="com.example.demo.domain.comment">
+            <result property="comment_id" column="commentId"/>
+            <result property="article_id" column="articleId"/>
+            <result property="user_id" column="userId"/>
+            <result property="comment" column="comment"/>
+            <result property="create_date" column="createDate"/>
+        </association>
+        <association property="articleImage" javaType="com.example.demo.domain.ArticleImage">
+            <result property="article_image_id" column="articleImageId"/>
+            <result property="article_id" column="articleId"/>
+            <result property="article_img" column="articleImg"/>
+        </association>
+        <association property="tagArticle" javaType="com.example.demo.domain.TagArticles">
+            <result property="tag_article_id" column="tagArticleId"/>
+            <result property="article_id" column="articleId"/>
+            <result property="tag_id" column="tagId"/>
+        </association>
+        <association property="tag" javaType="com.example.demo.domain.Tag">
+            <result property="tag_id" column="tagId"/>
+            <result property="tag_name" column="tagName"/>
+        </association>
+        <association property="goodArticle" javaType="com.example.demo.domain.GoodArticle">
+            <result property="good_article_id" column="goodArticleId"/>
+            <result property="user_id" column="userId"/>
+            <result property="article_id" column="articleId"/>
+            <result property="save_date" column="saveDate"/>
+        </association>
+    </resultMap> -->
+
 </mapper>

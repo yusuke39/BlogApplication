@@ -11,7 +11,7 @@
       <span v-for="(user, index) in users"  :key="index" class="blog-cards">
         <div class="blog-card-wrarpper">
           <el-card :body-style="{ padding: '0px' }"  class="blog-card">
-            <router-link to="/blog">
+            <router-link :to="{ path: 'blog', query: { userId: user.userId }}">
               <div class="blog-img-wrapper">
                 <img v-if="user.blogImg == null" src="../assets/defaulBlogMainImg.gif" class="blog-card-img">
                 <img v-if="user.blogImg != null" :src="user.blogImg" class="blog-card-img">

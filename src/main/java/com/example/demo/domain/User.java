@@ -26,4 +26,17 @@ public class User {
   private String createDate;
 
   private String updateDate;
+
+  private Article article;
+
+  private Comment comment;
+
+  private ArticleImage articleImage;
+
+  private TagArticle tagArticle;
+
+  private Tag tag;
+
+  private GoodArticle goodArticle;
+
 }

@@ -77,28 +77,26 @@ public class UserController {
     */
    @RequestMapping("/getAllUser")
    public List<List<User>> getAllUser(){
-    // List <User> userList = new ArrayList<>();
-
-    // List<List<User>> userBreakList = new ArrayList<>();
-
-    // for(int i = 1; userService.getAllUser().size(); i++){
-    //   userBreakList.add()
-    // }
-
-
     return makeUserList(userService.getAllUser());
-    // List<User> userList = new ArrayList<>();
-    // int offset = 0;
-    // for(int i = 1 ; i <= userService.countAllUser() / 4 + 1 ; i++) {
-    //   userList =  userService.getAllUser(offset);
-    //   System.out.println(userList);
-    //   offset +=  4;
-    // }
-    // return userList;
-    // System.out.println(userList + "なに");
-    //  return userList;
    }
 
+
+   /**
+    * ユーザーをuseerIdで1件検索する.
+    * @param userId
+    */
+   @RequestMapping("/findUserAndArticleByUserId")
+   public void findUserfindUserAndArticleByUserIdByUserId(
+     @RequestParam("userId") int userId
+   ){
+     System.out.println(userId);
+   }
+
+   /**
+    * 取ってきたUserのListを４つ×n個にわけ、Listに詰め直す
+    * @param userList
+    * @return
+    */
    public List<List<User>> makeUserList(List<User> userList){
 
      List<User> userBreakList = new ArrayList<>();
