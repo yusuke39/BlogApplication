@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import firebase from '../plugins/firebase'
+import firebase from '../plugins/firebaseconfig'
 export default {
   data () {
     return {
