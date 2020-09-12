@@ -102,18 +102,6 @@ export default {
     created () {
       this.$parent.message = this.firebaseImgUrl
     }
-    // upload () {
-    //   const file = this.firebaseImage
-    //   var storageRef = firebase.storage().ref(file.name)
-    //   storageRef.put(file).then(() => {
-    //     firebase.storage().ref(file.name).getDownloadURL().then((url) => {
-    //       console.log(url)
-    //       this.firebaseImgUrl = url
-    //     }).catch(error => {
-    //       console.log(error)
-    //     })
-    //   })
-    // }
   }
 }
 </script>
