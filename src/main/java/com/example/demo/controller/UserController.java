@@ -22,6 +22,7 @@ public class UserController {
   @Autowired
   UserService userService;
 
+  
   /**
    * ユーザーを登録する.
    * @param userName
@@ -81,16 +82,16 @@ public class UserController {
    }
 
 
-   /**
-    * ユーザーをuseerIdで1件検索する.
-    * @param userId
-    */
-   @RequestMapping("/findUserAndArticleByUserId")
-   public void findUserfindUserAndArticleByUserIdByUserId(
-     @RequestParam("userId") int userId
-   ){
-     System.out.println(userId);
-   }
+  //  /**
+  //   * ユーザーをuseerIdで1件検索する.
+  //   * @param userId
+  //   */
+  //  @RequestMapping("/findUserAndArticleByUserId")
+  //  public void findUserfindUserAndArticleByUserIdByUserId(
+  //    @RequestParam("userId") int userId
+  //  ){
+  //    System.out.println(userId);
+  //  }
 
    /**
     * 取ってきたUserのListを４つ×n個にわけ、Listに詰め直す

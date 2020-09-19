@@ -66,11 +66,12 @@ export default {
   },
   methods: {
     login () {
-      const userLoginInfo = new FormData()
-      userLoginInfo.append('email', this.email)
-      userLoginInfo.append('password', this.password)
+      // const userLoginInfo = new FormData()
+      // userLoginInfo.append('email', this.email)
+      // userLoginInfo.append('password', this.password)
+      // console.log(userLoginInfo + 'この中身何dだー')
       axios
-        .post('http://localhost:8080/login', userLoginInfo)
+        .post('http://localhost:8080/login', { username: this.email, password: this.password })
         .then(response => {
           console.log(response)
         })

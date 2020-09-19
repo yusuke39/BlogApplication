@@ -6,6 +6,7 @@ import com.example.demo.domain.User;
 import com.example.demo.mapper.UserMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,8 +15,8 @@ public class UserService {
   @Autowired
   UserMapper userMapper;
 
-  // @Autowired
-  // PasswordEncoder passwordEncoder;
+  @Autowired
+  BCryptPasswordEncoder bCryptPasswordEncoder;
 
   /**
    * Userドメインに詰めてUserMapperへ渡しユーザー新規登録.
@@ -29,7 +30,7 @@ public class UserService {
     user.setUserName(userName);
     user.setEmail(email);
     user.setBlogName(blogName);
-    user.setPassword(password);
+    user.setPassword(bCryptPasswordEncoder.encode(password));
     userMapper.insertUser(user);
   }
 

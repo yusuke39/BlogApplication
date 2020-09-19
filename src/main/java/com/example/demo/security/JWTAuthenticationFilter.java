@@ -1,91 +1,33 @@
-// package com.example.demo.security;
+package com.example.demo.security;
 
-// import com.example.demo.form.UserForm;
-// import com.fasterxml.jackson.databind.ObjectMapper;
-// import io.jsonwebtoken.Jwts;
-// import io.jsonwebtoken.SignatureAlgorithm;
-// import org.slf4j.Logger;
-// import org.slf4j.LoggerFactory;
-// import org.springframework.security.authentication.AuthenticationManager;
-// import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-// import org.springframework.security.core.Authentication;
-// import org.springframework.security.core.AuthenticationException;
-// import org.springframework.security.core.userdetails.User;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-// import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-// import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import java.io.IOException;
+import io.jsonwebtoken.SignatureException;
 
-// import javax.servlet.FilterChain;
-// import javax.servlet.ServletException;
-// import javax.servlet.http.HttpServletRequest;
-// import javax.servlet.http.HttpServletResponse;
-// import java.io.IOException;
-// import java.util.ArrayList;
-// import java.util.Date;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.filter.OncePerRequestFilter;
 
-// public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.UnsupportedJwtException;
 
-//     private static final Logger LOGGER = LoggerFactory.getLogger(JWTAuthenticationFilter.class);
+public class JWTAuthenticationFilter extends OncePerRequestFilter {
+  @Override
+  protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response, final FilterChain filterChain) throws ServletException,
+          IOException {
+      try {
+          Authentication authentication = TokenAuthenticationHelper.getAuthentication(request);
+          SecurityContextHolder.getContext().setAuthentication(authentication);
+          filterChain.doFilter(request, response);
+      } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException |
+              SignatureException | IllegalArgumentException e) {
+          response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token expired");
+      }
+  }
 
-//     public AuthenticationManager authenticationManager;
-//     public BCryptPasswordEncoder bCryptPasswordEncoder;
-    
-//     public JWTAuthenticationFilter(AuthenticationManager authenticationManager, BCryptPasswordEncoder bCryptPasswordEncoder) {
-
-//       this.authenticationManager = authenticationManager;
-//       this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-
-//       // ログイン用のpathを変更する
-//         setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("/login", "POST"));
-
-//         // ログイン用のID/PWのパラメータ名を変更する
-//         setUsernameParameter("email");
-//         setPasswordParameter("password");
-
-//     }
-
-//     // 認証の処理
-//     @Override
-//     public Authentication attemptAuthentication(HttpServletRequest req,
-//                                                 HttpServletResponse res
-//                                                 ) throws AuthenticationException {
-
-//         try {
-//             // requestパラメータからユーザ情報を読み取る
-//             UserForm userForm = new ObjectMapper().readValue(req.getInputStream(), UserForm.class);
-
-//             return authenticationManager.authenticate(
-//                     new UsernamePasswordAuthenticationToken(
-//                             userForm.getEmail(),
-//                             userForm.getPassword(),
-//                             new ArrayList<>())
-//             );
-//         } catch (IOException e) {
-//             LOGGER.error(e.getMessage());
-//             throw new RuntimeException(e);
-//         }
-//     }
-
-
-//     // 認証に成功した場合の処理
-//     @Override
-//     protected void successfulAuthentication(HttpServletRequest req,
-//                                             HttpServletResponse res,
-//                                             FilterChain chain,
-//                                             Authentication auth) throws IOException, ServletException {
-
-//           System.out.println("successfulAuthenticationきたよー");
-//         // loginIdからtokenを設定してヘッダにセットする
-//         String token = Jwts.builder()
-//                 .setSubject(((User)auth.getPrincipal()).getUsername()) // usernameだけを設定する
-//                 .setExpiration(new Date(System.currentTimeMillis() + 28_800_000))
-//                 .signWith(SignatureAlgorithm.HS512, "rakuskill&I&Y&H&A".getBytes())
-//                 .claim("role", auth.getAuthorities()).compact();
-//         res.addHeader("Authorization", "Bearer " + token);
-
-//         // ここでレスポンスを組み立てると個別のパラメータを返せるがFilterの責務の範囲内で実施しなければならない
-//         // auth.getPrincipal()で取得できるUserDetailsは自分で作ったEntityクラスにもできるのでカスタム属性は追加可能
-//     }
-
-// }
+}
